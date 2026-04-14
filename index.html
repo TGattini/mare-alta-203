@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Maré Alta 203 — Bertioga · Reserve Agora</title>
+<title>Maré Alta 203</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,400&family=Nunito:wght@300;400;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 /* ═══ TOKENS ═══ */
@@ -295,6 +295,40 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
 #splash.hiding{animation:splashOut .45s ease forwards;pointer-events:none;}
 
 @keyframes twinkle{0%,100%{opacity:.15;transform:scale(1);}50%{opacity:.9;transform:scale(1.5);}}
+
+/* ── SISTEMA DE RESERVA DIRETA ── */
+.reserva-wrap{padding:80px 24px;background:linear-gradient(135deg,#fff7ed,#fef3c7 50%,#f0fdf4);}
+.reserva-card{background:#fff;border-radius:20px;padding:22px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:14px;}
+.r-title{font-family:'Fraunces',serif;font-size:20px;color:var(--ink);margin-bottom:4px;}
+.r-sub{font-size:12.5px;color:#6a8090;line-height:1.6;margin-bottom:16px;}
+.r-input{width:100%;border:1.5px solid #e2e8f0;border-radius:12px;padding:12px 14px;font-family:'Nunito',sans-serif;font-size:13.5px;outline:none;color:var(--ink);margin-bottom:10px;transition:border-color .2s;}
+.r-input:focus{border-color:var(--sky);}
+.r-select{width:100%;border:1.5px solid #e2e8f0;border-radius:12px;padding:12px 14px;font-family:'Nunito',sans-serif;font-size:13.5px;outline:none;color:var(--ink);margin-bottom:10px;background:#fff;-webkit-appearance:none;transition:border-color .2s;}
+.r-select:focus{border-color:var(--sky);}
+.r-label{font-size:10px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--ocean);margin-bottom:5px;display:block;}
+.cupom-row{display:flex;gap:8px;margin-bottom:10px;}
+.cupom-input{flex:1;border:1.5px solid #e2e8f0;border-radius:12px;padding:12px 14px;font-family:'Nunito',sans-serif;font-size:13.5px;outline:none;color:var(--ink);text-transform:uppercase;letter-spacing:2px;transition:border-color .2s;}
+.cupom-btn{background:var(--deep);border:none;border-radius:12px;padding:12px 18px;color:#fff;font-size:12px;font-weight:800;letter-spacing:1px;cursor:pointer;white-space:nowrap;}
+.cupom-ok{display:none;background:#f0fdf4;border:1.5px solid #86efac;border-radius:12px;padding:12px 14px;color:#166534;font-size:13px;font-weight:700;margin-bottom:10px;text-align:center;}
+.cupom-err{display:none;background:#fff1f2;border:1.5px solid #fca5a5;border-radius:12px;padding:12px 14px;color:#991b1b;font-size:13px;font-weight:700;margin-bottom:10px;text-align:center;}
+.preco-box{background:var(--soft);border-radius:14px;padding:16px;margin-bottom:14px;}
+.preco-row{display:flex;justify-content:space-between;font-size:13px;color:#4a7080;margin-bottom:6px;}
+.preco-row.total{font-weight:900;font-size:15px;color:var(--ink);border-top:1px solid #e2e8f0;padding-top:8px;margin-top:4px;}
+.preco-row .desconto{color:#16a34a;font-weight:800;}
+.r-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--amber));border:none;border-radius:14px;padding:16px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;letter-spacing:1px;box-shadow:0 8px 20px rgba(249,115,22,.3);margin-top:4px;}
+.r-btn:disabled{opacity:.5;cursor:not-allowed;}
+.parceiro-card{background:linear-gradient(135deg,var(--deep),var(--ocean));border-radius:20px;padding:22px;color:#fff;text-align:center;}
+.p-title{font-family:'Fraunces',serif;font-size:20px;margin-bottom:6px;}
+.p-sub{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:18px;line-height:1.6;}
+.p-code{background:rgba(255,255,255,.15);border-radius:12px;padding:14px;margin-bottom:14px;}
+.p-code-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;opacity:.6;margin-bottom:6px;}
+.p-code-val{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--gold);letter-spacing:4px;}
+.p-btn{display:block;background:linear-gradient(135deg,var(--gold),var(--amber));border:none;border-radius:14px;padding:14px;color:#fff;font-size:14px;font-weight:800;text-decoration:none;letter-spacing:1px;cursor:pointer;width:100%;}
+.comissao-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;}
+.com-item{background:rgba(255,255,255,.1);border-radius:12px;padding:14px;text-align:center;}
+.com-val{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--gold);}
+.com-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;opacity:.6;margin-top:3px;}
+
 </style>
 </head>
 <body>
@@ -896,7 +930,7 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
     <div class="wifi-box">
       <div style="font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;opacity:.55;margin-bottom:10px;">🛜 INTERNET</div>
       <div class="wifi-row"><div class="wifi-lbl">Rede Wi-Fi</div><div class="wifi-val">••••••••••</div></div>
-      <div class="wifi-row"><div class="wifi-lbl">Senha</div><div class="wifi-val">•••••••••• (disponível no check-in)</div></div>
+      <div class="wifi-row"><div class="wifi-lbl">Senha</div><div class="wifi-val">•••••••• (disponível após check-in)</div></div>
       <div style="margin-top:10px;font-size:11.5px;opacity:.55;line-height:1.65;">☀️ Cobertura em todo o apartamento · 🎬 Velocidade para streaming</div>
     </div>
 
@@ -914,15 +948,18 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
     <div class="section-label">⭐ SUA EXPERIÊNCIA</div>
     <!-- FUNIL DE SATISFAÇÃO -->
     <div id="funil-step1" style="background:linear-gradient(135deg,var(--deep),var(--ocean));border-radius:18px;margin:0 16px;padding:22px;text-align:center;">
-      <div style="font-family:'Fraunces',serif;font-size:21px;color:#fff;margin-bottom:6px;">Reserve sua estadia! 🌊</div>
-      <div style="font-size:13px;color:rgba(255,255,255,.65);margin-bottom:20px;line-height:1.6;">Veja disponibilidade e faça sua reserva no Airbnb.</div>
+      <div style="font-family:'Fraunces',serif;font-size:21px;color:#fff;margin-bottom:6px;">Reserve o Maré Alta 203! 🌊</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.65);margin-bottom:20px;line-height:1.6;">Reserva direta com desconto. Sem taxa de plataforma.</div>
       <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="https://www.airbnb.com.br/rooms/1649932875089753780" target="_blank" style="background:linear-gradient(135deg,var(--gold),var(--amber));border:none;border-radius:14px;padding:16px;color:#fff;font-size:15px;font-weight:800;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px;">
-          🌊 Ver disponibilidade no Airbnb
-        </a>
-        <a href="https://wa.me/5511947963159" target="_blank" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:16px;color:#fff;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px;">
-          💬 Falar com o anfitrião
-        </a>
+        <button onclick="funil('otima')" style="background:linear-gradient(135deg,#06d6a0,#0e7490);border:none;border-radius:14px;padding:16px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;">
+          🤩 Incrível — superou as expectativas!
+        </button>
+        <button onclick="funil('boa')" style="background:linear-gradient(135deg,#fbbf24,#f97316);border:none;border-radius:14px;padding:16px;color:#fff;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;">
+          😊 Boa — gostei bastante
+        </button>
+        <button onclick="funil('melhorar')" style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:16px;color:rgba(255,255,255,.85);font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;">
+          🤔 Teve pontos a melhorar
+        </button>
       </div>
     </div>
 
@@ -973,6 +1010,119 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
     </div>
   </div>
 
+
+  <!-- ══ RESERVA DIRETA ══ -->
+  <div class="page" id="pg-reserva">
+    <div class="pg-pad">
+      <div class="eyebrow" style="color:var(--amber);">🏷️ reserve direto</div>
+      <div class="pg-title">Reserva <em style="color:var(--amber);">Direta</em></div>
+      <div class="pg-sub">Sem taxa de plataforma. Cupom de desconto válido. Pague via Pix. 🤙</div>
+    </div>
+
+    <!-- FORMULÁRIO DE RESERVA -->
+    <div style="padding:0 16px;">
+      <div class="reserva-card">
+        <div class="r-title">📅 Solicitar Reserva</div>
+        <div class="r-sub">Preencha os dados e aguarde a confirmação do Kaue via WhatsApp em até 1h.</div>
+
+        <label class="r-label">Seu nome completo</label>
+        <input class="r-input" id="r-nome" type="text" placeholder="Como posso te chamar?">
+
+        <label class="r-label">WhatsApp para contato</label>
+        <input class="r-input" id="r-phone" type="tel" placeholder="(11) 99999-9999">
+
+        <label class="r-label">Check-in</label>
+        <input class="r-input" id="r-checkin" type="date">
+
+        <label class="r-label">Check-out</label>
+        <input class="r-input" id="r-checkout" type="date">
+
+        <label class="r-label">Número de hóspedes</label>
+        <select class="r-select" id="r-hospedes">
+          <option value="">Selecione...</option>
+          <option value="1">1 pessoa</option>
+          <option value="2">2 pessoas</option>
+          <option value="3">3 pessoas</option>
+          <option value="4">4 pessoas</option>
+          <option value="5">5 pessoas</option>
+          <option value="6">6 pessoas</option>
+          <option value="7">7 pessoas</option>
+          <option value="8">8 pessoas (máximo)</option>
+        </select>
+
+        <label class="r-label">Cupom de desconto (opcional)</label>
+        <div class="cupom-row">
+          <input class="cupom-input" id="r-cupom" type="text" placeholder="EX: VERAO10">
+          <button class="cupom-btn" onclick="validarCupom()">Aplicar</button>
+        </div>
+        <div class="cupom-ok" id="cupom-ok">✅ <span id="cupom-msg">Cupom válido!</span></div>
+        <div class="cupom-err" id="cupom-err">❌ Cupom inválido ou expirado.</div>
+
+        <!-- RESUMO DE PREÇO -->
+        <div class="preco-box" id="preco-box" style="display:none;">
+          <div class="preco-row"><span>Diária estimada</span><span id="p-diaria">—</span></div>
+          <div class="preco-row desconto" id="p-row-desc" style="display:none;"><span>Desconto cupom</span><span id="p-desc" class="desconto">—</span></div>
+          <div class="preco-row total"><span>💰 Total estimado</span><span id="p-total">—</span></div>
+          <div style="font-size:10px;color:#94a3b8;margin-top:6px;">*Valor final confirmado pelo Kaue via WhatsApp</div>
+        </div>
+
+        <button class="r-btn" id="r-enviar" onclick="enviarReserva()">
+          💬 Solicitar via WhatsApp
+        </button>
+      </div>
+
+      <!-- VANTAGENS DA RESERVA DIRETA -->
+      <div class="reserva-card" style="background:var(--soft);">
+        <div style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--ocean);margin-bottom:12px;">✦ POR QUE RESERVAR DIRETO?</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink);">
+            <span style="font-size:20px;">💰</span><div><strong>Sem taxa de plataforma</strong><div style="font-size:11px;color:#6a8090;">Economize até 15% vs Airbnb</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink);">
+            <span style="font-size:20px;">🏷️</span><div><strong>Cupons exclusivos</strong><div style="font-size:11px;color:#6a8090;">Descontos para indicações e parceiros</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink);">
+            <span style="font-size:20px;">⚡</span><div><strong>Confirmação direta</strong><div style="font-size:11px;color:#6a8090;">Resposta em até 1h pelo WhatsApp</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink);">
+            <span style="font-size:20px;">💳</span><div><strong>Pague via Pix</strong><div style="font-size:11px;color:#6a8090;">Simples, seguro e sem burocracia</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROGRAMA DE PARCEIROS -->
+      <div class="parceiro-card">
+        <div class="p-title">🤝 Seja um Parceiro</div>
+        <div class="p-sub">Indique o Maré Alta 203 e ganhe comissão em cada reserva confirmada. Quanto mais você indica, mais você ganha.</div>
+
+        <div class="comissao-grid">
+          <div class="com-item">
+            <div class="com-val">10%</div>
+            <div class="com-lbl">Comissão por reserva</div>
+          </div>
+          <div class="com-item">
+            <div class="com-val">Pix</div>
+            <div class="com-lbl">Pagamento imediato</div>
+          </div>
+        </div>
+
+        <div class="p-code" style="margin-bottom:14px;">
+          <div class="p-code-label">Como funciona</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.8);line-height:1.7;text-align:left;">
+            1. Entre em contato com o Kaue<br>
+            2. Receba seu código exclusivo<br>
+            3. Divulgue para sua rede<br>
+            4. Ganhe 10% de cada reserva fechada 💛
+          </div>
+        </div>
+
+        <a href="https://wa.me/5511947963159?text=Ol%C3%A1%20Kaue!%20Quero%20ser%20parceiro%20do%20Mar%C3%A9%20Alta%20203%20e%20receber%20meu%20c%C3%B3digo%20de%20afiliado%20%F0%9F%A4%99" class="p-btn" target="_blank">
+          💬 Quero ser parceiro → WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
 </div><!-- /pages -->
 
 <!-- ════ BOTTOM NAV ════ -->
@@ -984,11 +1134,124 @@ html,body{height:100%;overflow:hidden;font-family:'Nunito',sans-serif;background
   <button class="nb" data-pg="pg-pass"><span class="nb-ic">⛵</span><span class="nb-tx">Passeios</span></button>
   <button class="nb" data-pg="pg-regras"><span class="nb-ic">📌</span><span class="nb-tx">Regras</span></button>
   <button class="nb" data-pg="pg-wifi"><span class="nb-ic">🛜</span><span class="nb-tx">Wi-Fi</span></button>
+  <button class="nb" data-pg="pg-reserva"><span class="nb-ic">🏷️</span><span class="nb-tx">Reservar</span></button>
 </nav>
 
 </div><!-- /app -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+// ══════════════════════════════
+// SISTEMA DE CUPONS — EDITE AQUI
+// ══════════════════════════════
+const CUPONS = {
+  // código: { desconto: %, descricao: texto, ativo: true/false }
+  'VERAO10':    { desconto: 10, descricao: '10% de desconto — Verão 2025', ativo: true },
+  'BEMVINDO15': { desconto: 15, descricao: '15% de desconto — Primeira reserva', ativo: true },
+  'PARCEIRO20': { desconto: 20, descricao: '20% de desconto — Parceiro exclusivo', ativo: true },
+  'FAMILIA10':  { desconto: 10, descricao: '10% de desconto — Família & amigos', ativo: true },
+  'INSTA10':    { desconto: 10, descricao: '10% — Seguidor do Instagram', ativo: true },
+};
+
+const DIARIA_BASE = 350; // R$ — ajuste conforme sua diária média
+let cupomAtivo = null;
+
+function validarCupom() {
+  const codigo = document.getElementById('r-cupom').value.trim().toUpperCase();
+  const okEl  = document.getElementById('cupom-ok');
+  const errEl = document.getElementById('cupom-err');
+  okEl.style.display='none';
+  errEl.style.display='none';
+  cupomAtivo = null;
+
+  if (!codigo) { errEl.style.display='block'; return; }
+
+  const cupom = CUPONS[codigo];
+  if (cupom && cupom.ativo) {
+    cupomAtivo = { codigo, ...cupom };
+    document.getElementById('cupom-msg').textContent = cupom.descricao;
+    okEl.style.display = 'block';
+    atualizarPreco();
+  } else {
+    errEl.style.display = 'block';
+  }
+}
+
+function atualizarPreco() {
+  const checkin  = document.getElementById('r-checkin').value;
+  const checkout = document.getElementById('r-checkout').value;
+  if (!checkin || !checkout) return;
+
+  const noites = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
+  if (noites <= 0) return;
+
+  const subtotal = noites * DIARIA_BASE;
+  let desconto = 0;
+  let total = subtotal;
+
+  document.getElementById('preco-box').style.display = 'block';
+  document.getElementById('p-diaria').textContent =
+    noites + ' noite(s) × R$' + DIARIA_BASE + ' = R$' + subtotal.toLocaleString('pt-BR');
+
+  if (cupomAtivo) {
+    desconto = Math.round(subtotal * cupomAtivo.desconto / 100);
+    total = subtotal - desconto;
+    document.getElementById('p-row-desc').style.display = 'flex';
+    document.getElementById('p-desc').textContent = '- R$' + desconto.toLocaleString('pt-BR') + ' (' + cupomAtivo.desconto + '%)';
+  } else {
+    document.getElementById('p-row-desc').style.display = 'none';
+  }
+
+  document.getElementById('p-total').textContent = 'R$' + total.toLocaleString('pt-BR');
+}
+
+// Atualiza preço quando muda datas
+document.addEventListener('DOMContentLoaded', () => {
+  ['r-checkin','r-checkout'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('change', atualizarPreco);
+  });
+});
+
+function enviarReserva() {
+  const nome     = document.getElementById('r-nome').value.trim();
+  const phone    = document.getElementById('r-phone').value.trim();
+  const checkin  = document.getElementById('r-checkin').value;
+  const checkout = document.getElementById('r-checkout').value;
+  const hospedes = document.getElementById('r-hospedes').value;
+
+  if (!nome || !phone || !checkin || !checkout || !hospedes) {
+    alert('Por favor, preencha todos os campos obrigatórios 🙏');
+    return;
+  }
+
+  const noites = Math.round((new Date(checkout) - new Date(checkin)) / 86400000);
+  const subtotal = noites * DIARIA_BASE;
+  let totalMsg = 'R$' + subtotal.toLocaleString('pt-BR');
+  let cupomMsg = '';
+
+  if (cupomAtivo) {
+    const desc = Math.round(subtotal * cupomAtivo.desconto / 100);
+    const total = subtotal - desc;
+    totalMsg = 'R$' + total.toLocaleString('pt-BR') + ' (com ' + cupomAtivo.desconto + '% off)';
+    cupomMsg = '\n🏷️ *Cupom:* ' + cupomAtivo.codigo + ' — ' + cupomAtivo.descricao;
+  }
+
+  const msg = encodeURIComponent(
+    '🏠 *Solicitação de Reserva — Maré Alta 203*\n\n' +
+    '👤 *Nome:* ' + nome + '\n' +
+    '📱 *WhatsApp:* ' + phone + '\n' +
+    '📅 *Check-in:* ' + checkin + '\n' +
+    '📅 *Check-out:* ' + checkout + ' (' + noites + ' noite(s))\n' +
+    '👥 *Hóspedes:* ' + hospedes + cupomMsg + '\n' +
+    '💰 *Total estimado:* ' + totalMsg + '\n\n' +
+    'Aguardo confirmação! 🙏'
+  );
+
+  window.open('https://wa.me/5511947963159?text=' + msg, '_blank');
+}
+// ══════════════════════════════
+
+</script>
 <script>
 // ── Stars ──
 (function(){
@@ -1022,7 +1285,7 @@ function enviarFeedback(){
     (phone ? '📱 *WhatsApp:* ' + phone + '\n' : '') +
     '\n💬 *Mensagem:*\n' + texto
   );
-  window.open('https://wa.me/5513947963159?text=' + msg, '_blank');
+  window.open('https://wa.me/5511947963159?text=' + msg, '_blank');
   document.getElementById('funil-feedback').style.display='none';
   document.getElementById('funil-enviado').style.display='block';
 }
@@ -1047,7 +1310,7 @@ document.getElementById('splash').addEventListener('click',function(e){
 });
 
 // ── Navigation ──
-const PAGE_ORDER=['pg-home','pg-apt','pg-praias','pg-comer','pg-pass','pg-regras','pg-wifi'];
+const PAGE_ORDER=['pg-home','pg-apt','pg-praias','pg-comer','pg-pass','pg-regras','pg-wifi','pg-reserva'];
 let current='pg-home';
 
 function goTo(target){
