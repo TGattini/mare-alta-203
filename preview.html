@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Maré Alta 203 · Preview Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,900&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════
+   TOKENS — Editorial Coastal
+═══════════════════════════════════════════════════════ */
+:root {
+  /* Paleta: creme quente + grafite + acentos terrosos */
+  --cream: #F5EFE6;
+  --cream-deep: #EDE5D6;
+  --paper: #FBF7F0;
+  --ink: #1E2A32;          /* grafite com leve azul-marinho */
+  --ink-soft: #4A5560;
+  --mute: #8A8073;
+  --line: rgba(30, 42, 50, 0.08);
+
+  /* Acentos */
+  --terracotta: #B8624A;   /* destaque principal */
+  --terracotta-deep: #8F4A36;
+  --moss: #5B7F5B;         /* secundário */
+  --ocean: #2D5566;        /* deep water */
+  --sand: #D4C5B0;
+  --gold-dust: #C8A766;    /* acento metálico discreto */
+
+  /* Sistema */
+  --nav: 64px;
+  --fab-size: 58px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --radius: 2px;           /* cantos quase retos — editorial */
+  --radius-lg: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════════ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SHELL
+═══════════════════════════════════════════════════════ */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  position: relative;
+}
+.pages {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.page {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: calc(var(--nav) + var(--safe-bottom) + 24px);
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.page.active {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+}
+
+/* ═══════════════════════════════════════════════════════
+   TIPOGRAFIA EDITORIAL
+═══════════════════════════════════════════════════════ */
+.eyebrow {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: .02em;
+  color: var(--terracotta);
+  margin-bottom: 10px;
+}
+.eyebrow::before {
+  content: '—— ';
+  letter-spacing: -.15em;
+  margin-right: 4px;
+  color: var(--terracotta);
+  opacity: .7;
+}
+
+.display {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(42px, 12vw, 68px);
+  line-height: .95;
+  letter-spacing: -.03em;
+  color: var(--ink);
+}
+.display em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--terracotta);
+}
+.display .light {
+  font-weight: 300;
+}
+
+.h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+.h2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--terracotta);
+}
+
+.lede {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.55;
+  letter-spacing: -.005em;
+  color: var(--ink-soft);
+}
+
+.body-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--ink);
+  letter-spacing: -.01em;
+  margin-bottom: 4px;
+}
+.section-meta {
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 600;
+}
+
+.rule {
+  height: 1px;
+  background: var(--line);
+  margin: 32px 24px;
+}
+.rule.ornate {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 24px;
+}
+.rule.ornate::before,
+.rule.ornate::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.rule.ornate span {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold-dust);
+  padding: 0 14px;
+  letter-spacing: .1em;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HOME
+═══════════════════════════════════════════════════════ */
+#pg-home {
+  background: var(--cream);
+}
+
+/* Hero com foto à bordo total */
+.hero {
+  position: relative;
+  height: 68vh;
+  min-height: 540px;
+  overflow: hidden;
+}
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(30, 42, 50, 0.15) 0%,
+    rgba(30, 42, 50, 0.05) 35%,
+    rgba(30, 42, 50, 0.4) 75%,
+    rgba(30, 42, 50, 0.75) 100%
+  );
+}
+.hero-content {
+  position: absolute;
+  inset: 0;
+  padding: 48px 28px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Topo com logo tipográfico minimalista */
+.hero-mark {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.hero-mark-line {
+  width: 32px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+}
+.hero-mark-text {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: .15em;
+  font-weight: 300;
+}
+
+/* Centro — título grande */
+.hero-text {
+  color: #fff;
+}
+.hero-eyebrow {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 15px;
+  letter-spacing: .08em;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(58px, 17vw, 92px);
+  line-height: .92;
+  letter-spacing: -.045em;
+  color: #fff;
+  margin-bottom: 22px;
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-dust);
+  display: block;
+}
+.hero-sub {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -.005em;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 280px;
+}
+.hero-sub strong {
+  font-weight: 500;
+  color: #fff;
+  font-style: italic;
+}
+
+/* Rodapé hero — coordinates/placemark */
+.hero-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.hero-foot-scroll {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.scroll-line {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  animation: scrollHint 2.2s ease-in-out infinite;
+}
+@keyframes scrollHint {
+  0%, 100% { transform: scaleY(.6); opacity: .4; transform-origin: top; }
+  50% { transform: scaleY(1); opacity: 1; transform-origin: top; }
+}
+
+/* Carta do anfitrião */
+.letter {
+  padding: 48px 28px 32px;
+  background: var(--cream);
+}
+.letter-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  color: var(--mute);
+  font-size: 11px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.letter-meta::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--terracotta);
+}
+.letter-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+.letter-title em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+.letter p {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+  letter-spacing: -.003em;
+}
+.letter p:last-of-type {
+  margin-bottom: 22px;
+}
+.letter-sign {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--ink);
+}
+.letter-sign::before {
+  content: '— ';
+  color: var(--terracotta);
+}
+
+/* Dados-chave em estilo ficha editorial */
+.specs {
+  padding: 0 28px;
+  margin-bottom: 40px;
+}
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.spec {
+  padding: 22px 0 18px;
+  border-bottom: 1px solid var(--line);
+}
+.spec:nth-child(odd) {
+  padding-right: 16px;
+  border-right: 1px solid var(--line);
+}
+.spec:nth-child(even) {
+  padding-left: 16px;
+}
+.spec-label {
+  font-size: 10px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.spec-value {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -.015em;
+}
+.spec-value em {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+
+/* Menu de navegação editorial */
+.nav-index {
+  padding: 8px 28px 40px;
+}
+.nav-index-title {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--mute);
+  margin-bottom: 24px;
+  letter-spacing: -.005em;
+}
+.nav-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 100%;
+  text-align: left;
+  transition: padding-left .25s ease;
+}
+.nav-item:first-child {
+  border-top: 1px solid var(--line);
+}
+.nav-item:active {
+  padding-left: 8px;
+}
+.nav-item-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold-dust);
+  font-weight: 400;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+.nav-item-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -.015em;
+  flex: 1;
+}
+.nav-item-name em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+.nav-item-arrow {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--mute);
+  transition: transform .25s ease, color .25s ease;
+}
+.nav-item:active .nav-item-arrow {
+  transform: translateX(6px);
+  color: var(--terracotta);
+}
+
+/* ═══════════════════════════════════════════════════════
+   APT
+═══════════════════════════════════════════════════════ */
+#pg-apt {
+  background: var(--cream);
+}
+
+.apt-header {
+  padding: 48px 28px 32px;
+}
+
+/* Hero foto do apê */
+.apt-hero {
+  margin: 0 0 40px;
+  position: relative;
+}
+.apt-hero img {
+  width: 100%;
+  height: 56vh;
+  min-height: 420px;
+  object-fit: cover;
+  display: block;
+}
+.apt-hero-caption {
+  padding: 16px 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 600;
+}
+.apt-hero-caption em {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: -.005em;
+  font-size: 14px;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+
+/* Galeria editorial */
+.gallery-section {
+  padding: 0 0 24px;
+}
+.gallery-intro {
+  padding: 0 28px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.gallery-intro-text {
+  flex: 1;
+}
+.gallery-hint {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--mute);
+  letter-spacing: -.005em;
+  flex-shrink: 0;
+  padding-bottom: 4px;
+}
+.gallery-hint::after {
+  content: ' →';
+  color: var(--terracotta);
+}
+
+.gallery {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 28px;
+  scrollbar-width: none;
+}
+.gallery::-webkit-scrollbar { display: none; }
+
+.gallery-item {
+  flex: 0 0 78vw;
+  max-width: 340px;
+  scroll-snap-align: start;
+}
+.gallery-photo {
+  width: 100%;
+  height: 58vw;
+  max-height: 440px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 14px;
+}
+.gallery-caption {
+  padding: 0 2px;
+}
+.gallery-caption-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -.015em;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.gallery-caption-name em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--terracotta);
+}
+.gallery-caption-detail {
+  font-size: 12.5px;
+  color: var(--mute);
+  letter-spacing: .01em;
+}
+
+/* Comodidades — lista editorial */
+.amenities {
+  padding: 0 28px;
+}
+.amenities-head {
+  margin-bottom: 28px;
+}
+.amenity {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.amenity:first-of-type {
+  border-top: 1px solid var(--line);
+}
+.amenity-num {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold-dust);
+  flex-shrink: 0;
+  min-width: 24px;
+}
+.amenity-body {
+  flex: 1;
+}
+.amenity-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.amenity-detail {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* Aviso roupa de cama — sutil, elegante */
+.notice {
+  margin: 36px 28px 0;
+  padding: 24px 22px;
+  background: var(--paper);
+  border-left: 2px solid var(--terracotta);
+  position: relative;
+}
+.notice-label {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--terracotta);
+  letter-spacing: .05em;
+  margin-bottom: 8px;
+}
+.notice-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.notice p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.notice p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Horários — bloco editorial discreto */
+.hours {
+  margin: 36px 28px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.hour {
+  padding: 24px 0;
+  text-align: center;
+}
+.hour:first-child {
+  border-right: 1px solid var(--line);
+}
+.hour-label {
+  font-size: 10px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.hour-value {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.hour-value em {
+  font-style: italic;
+  color: var(--terracotta);
+}
+.hour-sub {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 12px;
+  color: var(--mute);
+}
+
+/* Bloco condomínio */
+.cond-section {
+  padding: 48px 0 0;
+}
+.cond-head {
+  padding: 0 28px 24px;
+}
+.cond-photos {
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cond-photo {
+  position: relative;
+}
+.cond-photo img {
+  width: 100%;
+  height: 48vw;
+  max-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+.cond-caption {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.cond-caption-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+.cond-caption-tag {
+  font-size: 10px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BOTTOM NAV EDITORIAL
+═══════════════════════════════════════════════════════ */
+.nav {
+  height: calc(var(--nav) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: stretch;
+  flex-shrink: 0;
+  z-index: 200;
+  position: relative;
+}
+.nb {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 8px 2px;
+  position: relative;
+}
+.nb-label {
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -.005em;
+  color: var(--mute);
+  transition: color .2s ease;
+}
+.nb.on .nb-label {
+  color: var(--ink);
+  font-style: italic;
+}
+.nb::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--terracotta);
+  transition: width .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+.nb.on::after {
+  width: 22px;
+}
+
+/* Botão Reservar flutuante */
+.fab-reservar {
+  position: fixed;
+  right: 20px;
+  bottom: calc(var(--nav) + var(--safe-bottom) + 20px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 22px;
+  background: var(--terracotta);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -.005em;
+  box-shadow:
+    0 8px 24px rgba(184, 98, 74, 0.35),
+    0 2px 6px rgba(184, 98, 74, 0.2);
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+  animation: fabEnter .6s ease .4s both;
+}
+.fab-reservar:active {
+  transform: scale(.96);
+}
+@keyframes fabEnter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fab-reservar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold-dust);
+  animation: fabBlink 2s ease-in-out infinite;
+}
+@keyframes fabBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SPLASH (simplificado no preview)
+═══════════════════════════════════════════════════════ */
+#splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#splash img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .55;
+}
+.splash-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 32px;
+  color: #fff;
+}
+.splash-ey {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: .1em;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin-bottom: 12px;
+  animation: fade .8s ease .3s both;
+}
+.splash-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(62px, 18vw, 100px);
+  line-height: .92;
+  letter-spacing: -.045em;
+  color: #fff;
+  margin-bottom: 24px;
+  animation: fade .8s ease .5s both;
+}
+.splash-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold-dust);
+  display: block;
+}
+.splash-hint {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: .15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 36px;
+  animation: fade .8s ease 1s both;
+}
+@keyframes fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#splash.hiding {
+  animation: splashOut .5s ease forwards;
+  pointer-events: none;
+}
+@keyframes splashOut {
+  to { opacity: 0; transform: scale(1.03); }
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ═══════════ SPLASH ═══════════ -->
+  <div id="splash" onclick="closeSplash()">
+    <img src="img/01-splash-ciclista.jpg" alt="">
+    <div class="splash-inner">
+      <div class="splash-ey">Bertioga · Litoral Paulista</div>
+      <h1 class="splash-title">Maré Alta<em>Costa Brava</em></h1>
+      <div class="splash-hint">toque para entrar</div>
+    </div>
+  </div>
+
+  <!-- ═══════════ PAGES ═══════════ -->
+  <div class="pages">
+
+    <!-- ═══ HOME ═══ -->
+    <div class="page active" id="pg-home">
+
+      <!-- HERO -->
+      <section class="hero">
+        <img class="hero-img" src="img/01-splash-ciclista.jpg" alt="">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <div class="hero-mark">
+            <div class="hero-mark-line"></div>
+            <div class="hero-mark-text">Apartamento 203</div>
+          </div>
+
+          <div class="hero-text">
+            <div class="hero-eyebrow">Bertioga · Maitinga</div>
+            <h1 class="hero-title">Maré Alta<em>Costa Brava</em></h1>
+            <p class="hero-sub">Um duplex para quem busca <strong>conforto e mar</strong> a cem metros da areia.</p>
+          </div>
+
+          <div class="hero-foot">
+            <div>23°51′S · 46°07′W</div>
+            <div class="hero-foot-scroll">
+              <span>role</span>
+              <div class="scroll-line"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARTA DO ANFITRIÃO -->
+      <article class="letter">
+        <div class="letter-meta">boas-vindas</div>
+        <h2 class="letter-title">Seja <em>bem-vindo</em> à nossa casa de praia.</h2>
+        <p>Um dia, um fim de semana, uma semana inteira — este duplex foi pensado para quem não abre mão de conforto e localização.</p>
+        <p>Três quartos com camas de casal, sofá-cama para dois, cozinha completa, piscina e churrasqueira no condomínio. Tudo a cem metros da praia de Maitinga.</p>
+        <p>Fique completamente à vontade. Aqui, tudo é seu.</p>
+        <div class="letter-sign">Kaue, seu anfitrião</div>
+      </article>
+
+      <!-- FICHA -->
+      <section class="specs">
+        <div class="specs-grid">
+          <div class="spec">
+            <div class="spec-label">Formato</div>
+            <div class="spec-value">Duplex · <em>2 andares</em></div>
+          </div>
+          <div class="spec">
+            <div class="spec-label">Capacidade</div>
+            <div class="spec-value">Até <em>8</em> hóspedes</div>
+          </div>
+          <div class="spec">
+            <div class="spec-label">Quartos</div>
+            <div class="spec-value">3 + <em>sofá</em></div>
+          </div>
+          <div class="spec">
+            <div class="spec-label">Da praia</div>
+            <div class="spec-value"><em>100</em> metros</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ORNAMENTAL -->
+      <div class="rule ornate"><span>✦</span></div>
+
+      <!-- ÍNDICE DE NAVEGAÇÃO -->
+      <nav class="nav-index">
+        <div class="nav-index-title">no seu guia</div>
+
+        <button class="nav-item" onclick="goTo('pg-apt')">
+          <span class="nav-item-num">I</span>
+          <span class="nav-item-name">O <em>Apartamento</em></span>
+          <span class="nav-item-arrow">→</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-item-num">II</span>
+          <span class="nav-item-name">As <em>Praias</em></span>
+          <span class="nav-item-arrow">→</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-item-num">III</span>
+          <span class="nav-item-name">Dicas <em>Locais</em></span>
+          <span class="nav-item-arrow">→</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-item-num">IV</span>
+          <span class="nav-item-name">Passeios & <em>Aventuras</em></span>
+          <span class="nav-item-arrow">→</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-item-num">V</span>
+          <span class="nav-item-name">Regras da <em>Casa</em></span>
+          <span class="nav-item-arrow">→</span>
+        </button>
+        <button class="nav-item">
+          <span class="nav-item-num">VI</span>
+          <span class="nav-item-name">Wi-Fi & <em>Contatos</em></span>
+          <span class="nav-item-arrow">→</span>
+        </button>
+      </nav>
+
+    </div>
+
+    <!-- ═══ APT ═══ -->
+    <div class="page" id="pg-apt">
+
+      <header class="apt-header">
+        <div class="eyebrow">capítulo I</div>
+        <h1 class="h2">O <em>Apartamento</em></h1>
+        <p class="lede" style="margin-top:14px;">Duplex com pé-direito alto, design autoral e cem metros da praia de Maitinga.</p>
+      </header>
+
+      <!-- HERO DO APÊ -->
+      <figure class="apt-hero">
+        <img src="img/02-apt-sala-mezanino.jpg" alt="Sala com pé-direito duplo">
+        <figcaption class="apt-hero-caption">
+          <span>fig. 01 · sala principal</span>
+          <em>Maré Alta 203</em>
+        </figcaption>
+      </figure>
+
+      <!-- GALERIA -->
+      <section class="gallery-section">
+        <div class="gallery-intro">
+          <div class="gallery-intro-text">
+            <div class="section-meta">Galeria · 16 ambientes</div>
+            <h3 class="section-title">Explore o <em>espaço</em></h3>
+          </div>
+          <div class="gallery-hint">deslize</div>
+        </div>
+
+        <div class="gallery">
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/03-apt-sala-tv.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Sala <em>de estar</em></div>
+              <div class="gallery-caption-detail">Cimento queimado · TV · Sofá-cama</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/05-apt-jantar.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Sala <em>de jantar</em></div>
+              <div class="gallery-caption-detail">Mesa para seis · Janelão</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/07-apt-cozinha-banquetas.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Cozinha <em>gourmet</em></div>
+              <div class="gallery-caption-detail">Quatro banquetas · Bancada em madeira</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/09-apt-cozinha-lateral.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Área <em>de preparo</em></div>
+              <div class="gallery-caption-detail">Totalmente equipada</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/10-apt-quarto-suite.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Suíte <em>principal</em></div>
+              <div class="gallery-caption-detail">Cama casal · Varanda · Ar-condicionado</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/11-apt-quarto-madeira.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Quarto <em>II</em></div>
+              <div class="gallery-caption-detail">Piso de madeira · Painel aconchegante</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/12-apt-quarto-poltrona.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Quarto <em>III</em></div>
+              <div class="gallery-caption-detail">Cama casal · Poltrona leitura</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/13-apt-banheiro-duplo.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Banheiro <em>suíte</em></div>
+              <div class="gallery-caption-detail">Duas pias · Azulejo verde-mar</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/15-apt-escada.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Escada <em>caracol</em></div>
+              <div class="gallery-caption-detail">Detalhe arquitetônico do duplex</div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img class="gallery-photo" src="img/17-apt-varanda.jpg" alt="" loading="lazy">
+            <div class="gallery-caption">
+              <div class="gallery-caption-name">Varanda <em>gourmet</em></div>
+              <div class="gallery-caption-detail">Mesa · Vista para a piscina</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="rule"></div>
+
+      <!-- COMODIDADES -->
+      <section class="amenities">
+        <div class="amenities-head">
+          <div class="section-meta">Comodidades</div>
+          <h3 class="section-title">O que <em>está incluso</em></h3>
+        </div>
+
+        <div class="amenity">
+          <div class="amenity-num">i.</div>
+          <div class="amenity-body">
+            <div class="amenity-name">Três quartos, três camas de casal</div>
+            <div class="amenity-detail">Mais sofá-cama para dois · Total de oito hóspedes</div>
+          </div>
+        </div>
+        <div class="amenity">
+          <div class="amenity-num">ii.</div>
+          <div class="amenity-body">
+            <div class="amenity-name">Piscina no condomínio</div>
+            <div class="amenity-detail">Mergulho liberado durante toda a estadia</div>
+          </div>
+        </div>
+        <div class="amenity">
+          <div class="amenity-num">iii.</div>
+          <div class="amenity-body">
+            <div class="amenity-name">Churrasqueira</div>
+            <div class="amenity-detail">No condomínio — basta trazer o carvão</div>
+          </div>
+        </div>
+        <div class="amenity">
+          <div class="amenity-num">iv.</div>
+          <div class="amenity-body">
+            <div class="amenity-name">Self check-in</div>
+            <div class="amenity-detail">Teclado numérico · Sem esperar ninguém</div>
+          </div>
+        </div>
+        <div class="amenity">
+          <div class="amenity-num">v.</div>
+          <div class="amenity-body">
+            <div class="amenity-name">Duas vagas de garagem</div>
+            <div class="amenity-detail">Inclusas na diária</div>
+          </div>
+        </div>
+        <div class="amenity">
+          <div class="amenity-num">vi.</div>
+          <div class="amenity-body">
+            <div class="amenity-name">Cozinha completa, ar-condicionado, Wi-Fi e TV</div>
+            <div class="amenity-detail">Todo o conforto de uma casa</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AVISO ROUPA DE CAMA -->
+      <aside class="notice">
+        <div class="notice-label">uma observação importante</div>
+        <div class="notice-title">A roupa de cama não está inclusa.</div>
+        <p>Disponibilizamos apenas os <strong>travesseiros</strong>. Traga seus <strong>lençóis, fronhas e toalhas</strong>. Pequeno detalhe para você se planejar antes de vir.</p>
+      </aside>
+
+      <!-- HORÁRIOS -->
+      <section class="hours">
+        <div class="hour">
+          <div class="hour-label">Check-in</div>
+          <div class="hour-value"><em>09</em>–21h</div>
+          <div class="hour-sub">código por mensagem</div>
+        </div>
+        <div class="hour">
+          <div class="hour-label">Check-out</div>
+          <div class="hour-value">até <em>12h</em></div>
+          <div class="hour-sub">desligue tudo</div>
+        </div>
+      </section>
+
+      <!-- CONDOMÍNIO -->
+      <section class="cond-section">
+        <div class="cond-head">
+          <div class="section-meta">No condomínio</div>
+          <h3 class="section-title">Área <em>comum</em></h3>
+        </div>
+        <div class="cond-photos">
+          <div class="cond-photo">
+            <img src="img/18-cond-piscina-1.jpg" alt="" loading="lazy">
+            <div class="cond-caption">
+              <div class="cond-caption-name">Piscina</div>
+              <div class="cond-caption-tag">uso livre</div>
+            </div>
+          </div>
+          <div class="cond-photo">
+            <img src="img/19-cond-piscina-2.jpg" alt="" loading="lazy">
+            <div class="cond-caption">
+              <div class="cond-caption-name">Área de lazer</div>
+              <div class="cond-caption-tag">palmeiras · deck</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- ═══════════ FAB RESERVAR ═══════════ -->
+  <button class="fab-reservar" onclick="alert('Preview: página Reservar será construída no passo 2')">
+    <span class="fab-reservar-dot"></span>
+    Reservar
+  </button>
+
+  <!-- ═══════════ BOTTOM NAV ═══════════ -->
+  <nav class="nav">
+    <button class="nb on" data-pg="pg-home"><span class="nb-label">Home</span></button>
+    <button class="nb" data-pg="pg-apt"><span class="nb-label">Apê</span></button>
+    <button class="nb"><span class="nb-label">Praias</span></button>
+    <button class="nb"><span class="nb-label">Dicas</span></button>
+    <button class="nb"><span class="nb-label">Passeios</span></button>
+    <button class="nb"><span class="nb-label">Regras</span></button>
+    <button class="nb"><span class="nb-label">Wi-Fi</span></button>
+  </nav>
+
+</div>
+
+<script>
+// Splash
+function closeSplash() {
+  const s = document.getElementById('splash');
+  s.classList.add('hiding');
+  setTimeout(() => s.style.display = 'none', 500);
+}
+
+// Nav
+function goTo(target) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(target).classList.add('active');
+  document.querySelectorAll('.nb').forEach(b => {
+    b.classList.toggle('on', b.dataset.pg === target);
+  });
+  document.getElementById(target).scrollTop = 0;
+}
+document.querySelectorAll('.nb[data-pg]').forEach(b => {
+  b.addEventListener('click', () => goTo(b.dataset.pg));
+});
+</script>
+</body>
+</html>
