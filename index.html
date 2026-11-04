@@ -112,8 +112,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* filme */
 .filme{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--lado-d) 12px var(--lado);scroll-padding-left:var(--lado);-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-.plano{position:relative;flex:0 0 min(80vw,350px);aspect-ratio:4/5;overflow:hidden;background:var(--cimento);scroll-snap-align:start;margin:0}
-.plano video{display:block;width:100%;height:100%;object-fit:cover}
+.plano{position:relative;flex:0 0 min(88vw,600px);aspect-ratio:4/3;overflow:hidden;background:var(--cimento);scroll-snap-align:start;margin:0}
+.plano video{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 72%}
 .plano figcaption{pointer-events:none}
 .plano img,.quadro img{transform:scale(var(--e,1));transform-origin:var(--o,50% 50%)}
 .anima .plano img,.anima .quadro img{transform:scale(calc(var(--e,1)*1.08));transition:transform 2.4s cubic-bezier(.22,1,.36,1)}
@@ -121,6 +121,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .plano figcaption{position:absolute;inset:auto 0 0;padding:64px 14px 12px;color:#fff;background:linear-gradient(to top,rgba(16,29,60,.86),rgba(16,29,60,0));display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline}
 .plano figcaption b{font:400 italic 20px var(--display);color:var(--gema)}
 .plano figcaption span{font:400 22px/1.15 var(--display)}
+.tour .miolo{display:grid;gap:22px;grid-template-columns:minmax(0,1fr)}
+.tour video{display:block;width:100%;max-width:340px;aspect-ratio:9/16;background:var(--tinta);object-fit:cover}
+.tour .texto{min-width:0;display:grid;gap:10px;align-content:center;max-width:32em}
+.tour h2{font-size:clamp(32px,7vw,52px)}
+@media(min-width:760px){.tour .miolo{grid-template-columns:340px minmax(0,1fr);gap:56px}}
 .controle{display:none;gap:8px;margin-top:10px}
 .controle button{width:48px;height:48px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);font:700 20px var(--corpo);cursor:pointer}
 .controle button:hover{background:var(--tinta);color:#fff}
@@ -227,24 +232,38 @@ footer strong{font:400 21px var(--display)}
     </ul>
   </section>
 
+  <section class="secao faixa tour" id="tour" style="padding-bottom:0">
+    <div class="miolo">
+      <video id="video-tour" src="video/tour.mp4" poster="img/tour-poster.jpg" muted loop playsinline controls preload="none" aria-label="Vídeo sem som: da porta com senha, pela cozinha e pela sala, até a mesa junto à janela"></video>
+      <div class="texto">
+        <h2>Entre no apartamento</h2>
+        <p>Da porta com senha até a mesa junto às palmeiras.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="duplex" class="secao" style="padding-bottom:36px">
     <div class="miolo faixa">
       <div class="cab">
         <h2>Cimento queimado, azulejo português e pé-direito alto.</h2>
-        <p>Deslize para fazer o caminho da chegada até a área de lazer.</p>
+        <p>Deslize para ver cada ambiente, da entrada à área de lazer.</p>
       </div>
     </div>
     <div class="filme" id="filme" tabindex="0" role="group" aria-label="Fotos do apartamento e do condomínio">
       <figure class="plano"><video id="video-chegada" src="video/chegada.mp4" poster="img/chegada-poster.jpg" muted playsinline preload="metadata" aria-label="Vídeo da fachada do condomínio, parando em frente ao portão"></video><figcaption><b>1</b><span>Entrada social</span></figcaption></figure>
-      <figure class="plano"><img src="img/entrada.jpg" style="--e:1.2;--o:62% 100%;object-position:62% 50%" alt="Porta de madeira com fechadura digital e escada caracol ao fundo" loading="lazy"><figcaption><b>2</b><span>Entrada com senha</span></figcaption></figure>
-      <figure class="plano"><img src="img/sala.jpg" style="object-position:62% 50%" alt="Sala com pé-direito alto, parede de cimento queimado e rack de madeira" loading="lazy"><figcaption><b>3</b><span>Sala com pé-direito alto</span></figcaption></figure>
-      <figure class="plano"><img src="img/cozinha.jpg" style="object-position:45% 50%" alt="Cozinha com ilha, quatro banquetas e barrado de azulejo português" loading="lazy"><figcaption><b>4</b><span>Cozinha com ilha</span></figcaption></figure>
-      <figure class="plano"><img src="img/banheiro.jpg" style="object-position:80% 50%" alt="Banheiro com box de vidro e azulejo verde-mar" loading="lazy"><figcaption><b>5</b><span>Banheiro em cima e embaixo</span></figcaption></figure>
-      <figure class="plano"><img src="img/quarto-suite.jpg" style="object-position:62% 50%" alt="Quarto de casal com porta aberta para a varanda" loading="lazy"><figcaption><b>6</b><span>Quarto com varanda</span></figcaption></figure>
-      <figure class="plano"><img src="img/quarto-2.jpg" alt="Quarto de casal com painel de madeira na cabeceira" loading="lazy"><figcaption><b>7</b><span>Quarto com painel</span></figcaption></figure>
-      <figure class="plano"><img src="img/quarto-3.jpg" style="object-position:35% 50%" alt="Quarto de casal com janela, ar-condicionado e poltrona" loading="lazy"><figcaption><b>8</b><span>Quarto com poltrona</span></figcaption></figure>
-      <figure class="plano"><img src="img/vista.jpg" style="object-position:48% 50%" alt="Vista da varanda para telhados e a serra ao fundo" loading="lazy"><figcaption><b>9</b><span>Vista para a serra</span></figcaption></figure>
-      <figure class="plano"><img src="img/area-gourmet.jpg" style="--e:1.36;--o:100% 42%" alt="Área coberta com churrasqueira, bancada e mesas altas" loading="lazy"><figcaption><b>10</b><span>Churrasqueira coberta</span></figcaption></figure>
+      <figure class="plano"><img src="img/entrada-senha.jpg" style="object-position:14% 50%" alt="Porta de madeira com fechadura digital e parede de cimento queimado" loading="lazy"><figcaption><b>2</b><span>Entrada com senha</span></figcaption></figure>
+      <figure class="plano"><img src="img/sala-escada.jpg" style="object-position:55% 50%" alt="Sala com pé-direito alto, sofá-cama, TV e escada caracol ao fundo" loading="lazy"><figcaption><b>3</b><span>Sala com pé-direito alto</span></figcaption></figure>
+      <figure class="plano"><img src="img/sala-alto.jpg" style="object-position:50% 50%" alt="Sala vista do alto, mostrando o pé-direito duplo e a mesa junto à janela" loading="lazy"><figcaption><b>4</b><span>Vista do mezanino</span></figcaption></figure>
+      <figure class="plano"><img src="img/sala-cozinha.jpg" style="object-position:50% 50%" alt="Sala integrada à cozinha, com mesa de jantar junto à janela e ilha com banquetas" loading="lazy"><figcaption><b>5</b><span>Sala integrada à cozinha</span></figcaption></figure>
+      <figure class="plano"><img src="img/mesa-seis.jpg" style="object-position:70% 50%" alt="Mesa para seis junto às janelas de vidro, com palmeiras do lado de fora" loading="lazy"><figcaption><b>6</b><span>Mesa para seis</span></figcaption></figure>
+      <figure class="plano"><img src="img/vista-palmeiras.jpg" style="object-position:50% 50%" alt="Vista do alto para as palmeiras, o deck do condomínio e a rua" loading="lazy"><figcaption><b>7</b><span>Vista para as palmeiras</span></figcaption></figure>
+      <figure class="plano"><img src="img/cozinha-ilha.jpg" style="object-position:45% 50%" alt="Cozinha com ilha, quatro banquetas e azulejo português" loading="lazy"><figcaption><b>8</b><span>Cozinha com ilha</span></figcaption></figure>
+      <figure class="plano"><img src="img/cozinha-escada.jpg" style="object-position:60% 50%" alt="Cozinha com armários cinza e escada caracol de concreto" loading="lazy"><figcaption><b>9</b><span>Escada para o 2º andar</span></figcaption></figure>
+      <figure class="plano"><img src="img/banheiro-frente.jpg" style="object-position:42% 50%" alt="Banheiro com box de vidro, azulejo verde e nicho" loading="lazy"><figcaption><b>10</b><span>Banheiro em cima e embaixo</span></figcaption></figure>
+      <figure class="plano"><img src="img/quarto-varanda.jpg" style="object-position:38% 50%" alt="Quarto com porta em arco aberta para a varanda e prateleiras de madeira" loading="lazy"><figcaption><b>11</b><span>Quarto com varanda</span></figcaption></figure>
+      <figure class="plano"><img src="img/quarto-painel.jpg" style="object-position:50% 50%" alt="Quarto com painel de madeira na parede e janela de madeira" loading="lazy"><figcaption><b>12</b><span>Quarto com painel</span></figcaption></figure>
+      <figure class="plano"><img src="img/quarto-janela.jpg" style="--e:1.12;--o:100% 0%;object-position:100% 50%" alt="Quarto com janela, ar-condicionado e poltrona vermelha" loading="lazy"><figcaption><b>13</b><span>Quarto com poltrona</span></figcaption></figure>
+      <figure class="plano"><img src="img/area-gourmet.jpg" style="--e:1.25;--o:100% 30%;object-position:50% 34%" alt="Área coberta com churrasqueira, bancada e mesas altas" loading="lazy"><figcaption><b>14</b><span>Churrasqueira coberta</span></figcaption></figure>
     </div>
     <div class="miolo faixa"><div class="controle">
       <button type="button" id="ant" aria-label="Foto anterior">←</button>
@@ -258,12 +277,12 @@ footer strong{font:400 21px var(--display)}
     <div class="miolo">
       <div class="cab"><h2>Como cabem 8 pessoas</h2></div>
       <div class="camas">
-        <figure class="cama"><div class="quadro"><img src="img/quarto-suite.jpg" style="object-position:30% 50%" alt="Quarto de casal com varanda" loading="lazy"></div><figcaption><b>Quarto com varanda</b>Cama de casal · 2 pessoas</figcaption></figure>
-        <figure class="cama"><div class="quadro"><img src="img/quarto-2.jpg" alt="Quarto de casal com painel de madeira" loading="lazy"></div><figcaption><b>Quarto com painel</b>Cama de casal · 2 pessoas</figcaption></figure>
-        <figure class="cama"><div class="quadro"><img src="img/quarto-3.jpg" style="object-position:35% 50%" alt="Quarto de casal com janela e poltrona" loading="lazy"></div><figcaption><b>Quarto com poltrona</b>Cama de casal · 2 pessoas</figcaption></figure>
-        <div class="cama texto"><strong>+2</strong><span><b>Sofá-cama na sala</b><br>2 pessoas</span></div>
+        <figure class="cama"><div class="quadro"><img src="img/quarto-varanda.jpg" style="object-position:67% 50%" alt="Quarto com porta em arco aberta para a varanda" loading="lazy"></div><figcaption><b>Quarto com varanda</b>Cama de casal · 2 pessoas</figcaption></figure>
+        <figure class="cama"><div class="quadro"><img src="img/quarto-painel.jpg" style="object-position:50% 50%" alt="Quarto com painel de madeira na parede" loading="lazy"></div><figcaption><b>Quarto com painel</b>Cama de casal · 2 pessoas</figcaption></figure>
+        <figure class="cama"><div class="quadro"><img src="img/quarto-janela.jpg" style="object-position:100% 50%" alt="Quarto com janela e poltrona vermelha" loading="lazy"></div><figcaption><b>Quarto com poltrona</b>Cama de casal · 2 pessoas</figcaption></figure>
+        <figure class="cama"><div class="quadro"><img src="img/sofa-cama.jpg" style="--e:1.25;--o:0% 70%;object-position:0% 50%" alt="Sofá-cama preto na sala, com mesa lateral" loading="lazy"></div><figcaption><b>Sofá-cama na sala</b>2 pessoas</figcaption></figure>
       </div>
-      <p class="aviso">A roupa de cama das fotos é ilustrativa. Traga a sua.</p>
+      <p class="aviso">Roupa de cama não inclusa. Traga lençóis, fronhas e cobertor.</p>
     </div>
   </section>
 
@@ -382,6 +401,10 @@ footer strong{font:400 21px var(--display)}
   el('prox').addEventListener('click',function(){mover(1)});
 
   if('IntersectionObserver' in window){
+    var tv=el('video-tour');
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+      new IntersectionObserver(function(es){if(es[0].isIntersecting){var t=tv.play();if(t&&t.catch)t.catch(function(){})}else{tv.pause()}},{threshold:.5}).observe(tv);
+    }
     var v=el('video-chegada');
     if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
       var vo=new IntersectionObserver(function(es){if(es[0].isIntersecting){vo.disconnect();var t=v.play();if(t&&t.catch)t.catch(function(){})}},{threshold:.5});
