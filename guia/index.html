@@ -645,7 +645,7 @@ function enviarFeedback(){
   const phone=document.getElementById('fb-phone').value.trim();
   if(!texto){alert('Por favor, conte o que aconteceu.');return;}
   const msg=encodeURIComponent('*Feedback Maré Alta 203*\n\n'+(nome?'*Nome:* '+nome+'\n':'')+(phone?'*WhatsApp:* '+phone+'\n':'')+'\n*Mensagem:*\n'+texto);
-  window.open('https://wa.me/5513947963159?text='+msg,'_blank');
+  window.open('https://wa.me/5511947963159?text='+msg,'_blank');
   document.getElementById('funil-feedback').style.display='none';
   document.getElementById('funil-enviado').style.display='block';
 }
