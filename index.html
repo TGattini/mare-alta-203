@@ -1,740 +1,402 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Maré Alta 203 · Bertioga</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,900&family=Karla:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Maré Alta 203 · Duplex em Maitinga, Bertioga</title>
+<meta name="description" content="Duplex para até 8 pessoas em Maitinga, Bertioga, com piscina no condomínio, praia a cerca de 100 m e pet bem-vindo.">
+<link rel="canonical" href="https://tgattini.github.io/mare-alta-203/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Maré Alta 203 · Duplex em Maitinga, Bertioga">
+<meta property="og:description" content="Cabe a família toda. E o pet também. Para até 8 pessoas, com piscina no condomínio e praia a cerca de 100 m.">
+<meta property="og:url" content="https://tgattini.github.io/mare-alta-203/">
+<meta property="og:image" content="https://tgattini.github.io/mare-alta-203/img/capa-piscina.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;700&display=swap">
 <style>
-:root{--cream:#F5EFE6;--cream-deep:#EDE5D6;--paper:#FBF7F0;--ink:#1E2A32;--ink-soft:#4A5560;--mute:#8A8073;--line:rgba(30,42,50,0.08);--line-strong:rgba(30,42,50,0.18);--terracotta:#B8624A;--terracotta-deep:#8F4A36;--moss:#5B7F5B;--ocean:#2D5566;--sand:#D4C5B0;--gold-dust:#C8A766;--nav:64px;--safe-bottom:env(safe-area-inset-bottom,0px);--radius:2px;--radius-lg:4px;}
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html,body{height:100%;overflow:hidden;background:var(--cream);color:var(--ink);font-family:'Karla',sans-serif;font-weight:400;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
-.app{display:flex;flex-direction:column;height:100vh;height:100dvh;position:relative;}
-.pages{flex:1;position:relative;overflow:hidden;}
-.page{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--nav) + var(--safe-bottom) + 24px);opacity:0;transform:translateX(40px);pointer-events:none;transition:opacity .35s ease,transform .35s ease;will-change:transform,opacity;}
-.page.active{opacity:1;transform:none;pointer-events:all;}
-.eyebrow{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:13px;letter-spacing:.02em;color:var(--terracotta);margin-bottom:10px;}
-.eyebrow::before{content:'—— ';letter-spacing:-.15em;margin-right:4px;color:var(--terracotta);opacity:.7;}
-.display{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(42px,12vw,68px);line-height:.95;letter-spacing:-.03em;color:var(--ink);}
-.display em{font-style:italic;font-weight:400;color:var(--terracotta);}
-.h2{font-family:'Fraunces',serif;font-weight:500;font-size:28px;line-height:1.1;letter-spacing:-.02em;color:var(--ink);}
-.h2 em{font-style:italic;font-weight:400;color:var(--terracotta);}
-.lede{font-family:'Fraunces',serif;font-weight:300;font-size:17px;line-height:1.55;letter-spacing:-.005em;color:var(--ink-soft);}
-.body-text{font-size:14.5px;line-height:1.7;color:var(--ink-soft);font-weight:400;}
-.section-title{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:20px;color:var(--ink);letter-spacing:-.01em;margin-bottom:4px;}
-.section-meta{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:600;}
-.rule{height:1px;background:var(--line);margin:32px 24px;}
-.rule.ornate{height:auto;display:flex;align-items:center;justify-content:center;margin:40px 24px;}
-.rule.ornate::before,.rule.ornate::after{content:'';flex:1;height:1px;background:var(--line);}
-.rule.ornate span{font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--gold-dust);padding:0 14px;letter-spacing:.1em;}
-.page-header{padding:48px 28px 32px;}
-#pg-home{background:var(--cream);}
-.hero{position:relative;height:68vh;min-height:540px;overflow:hidden;}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
-.hero-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(30,42,50,0.15) 0%,rgba(30,42,50,0.05) 35%,rgba(30,42,50,0.4) 75%,rgba(30,42,50,0.75) 100%);}
-.hero-content{position:absolute;inset:0;padding:48px 28px 56px;display:flex;flex-direction:column;justify-content:space-between;}
-.hero-mark{display:flex;align-items:center;gap:14px;color:rgba(255,255,255,0.85);}
-.hero-mark-line{width:32px;height:1px;background:rgba(255,255,255,0.6);}
-.hero-mark-text{font-family:'Fraunces',serif;font-style:italic;font-size:13px;letter-spacing:.15em;font-weight:300;}
-.hero-text{color:#fff;}
-.hero-eyebrow{font-family:'Fraunces',serif;font-style:italic;font-size:15px;letter-spacing:.08em;color:rgba(255,255,255,0.75);font-weight:300;margin-bottom:14px;}
-.hero-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(58px,17vw,92px);line-height:.92;letter-spacing:-.045em;color:#fff;margin-bottom:22px;}
-.hero-title em{font-style:italic;font-weight:300;color:var(--gold-dust);display:block;}
-.hero-sub{font-family:'Fraunces',serif;font-weight:300;font-size:17px;line-height:1.5;letter-spacing:-.005em;color:rgba(255,255,255,0.85);max-width:280px;}
-.hero-sub strong{font-weight:500;color:#fff;font-style:italic;}
-.hero-foot{display:flex;justify-content:space-between;align-items:flex-end;color:rgba(255,255,255,0.7);font-size:11px;letter-spacing:.25em;text-transform:uppercase;font-weight:500;}
-.hero-foot-scroll{display:flex;align-items:center;gap:10px;}
-.scroll-line{width:1px;height:24px;background:rgba(255,255,255,0.6);animation:scrollHint 2.2s ease-in-out infinite;}
-@keyframes scrollHint{0%,100%{transform:scaleY(.6);opacity:.4;transform-origin:top;}50%{transform:scaleY(1);opacity:1;transform-origin:top;}}
-.letter{padding:48px 28px 32px;}
-.letter-meta{display:flex;align-items:center;gap:14px;margin-bottom:20px;color:var(--mute);font-size:11px;letter-spacing:.25em;text-transform:uppercase;font-weight:600;}
-.letter-meta::before{content:'';width:24px;height:1px;background:var(--terracotta);}
-.letter-title{font-family:'Fraunces',serif;font-weight:400;font-size:32px;line-height:1.12;letter-spacing:-.025em;color:var(--ink);margin-bottom:18px;}
-.letter-title em{font-style:italic;color:var(--terracotta);}
-.letter p{font-family:'Fraunces',serif;font-weight:300;font-size:16.5px;line-height:1.65;color:var(--ink-soft);margin-bottom:14px;letter-spacing:-.003em;}
-.letter p:last-of-type{margin-bottom:22px;}
-.letter-sign{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:17px;color:var(--ink);}
-.letter-sign::before{content:'— ';color:var(--terracotta);}
-.specs{padding:0 28px;margin-bottom:40px;}
-.specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);}
-.spec{padding:22px 0 18px;border-bottom:1px solid var(--line);}
-.spec:nth-child(odd){padding-right:16px;border-right:1px solid var(--line);}
-.spec:nth-child(even){padding-left:16px;}
-.spec-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:6px;}
-.spec-value{font-family:'Fraunces',serif;font-weight:400;font-size:22px;line-height:1.1;color:var(--ink);letter-spacing:-.015em;}
-.spec-value em{font-style:italic;color:var(--terracotta);font-weight:400;}
-.nav-index{padding:8px 28px 40px;}
-.nav-index-title{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:var(--mute);margin-bottom:24px;letter-spacing:-.005em;}
-.nav-item{display:flex;align-items:baseline;justify-content:space-between;padding:18px 0;border-bottom:1px solid var(--line);cursor:pointer;background:transparent;border-left:none;border-right:none;border-top:none;width:100%;text-align:left;transition:padding-left .25s ease;}
-.nav-item:first-child{border-top:1px solid var(--line);}
-.nav-item:active{padding-left:8px;}
-.nav-item-num{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--gold-dust);font-weight:400;margin-right:16px;flex-shrink:0;}
-.nav-item-name{font-family:'Fraunces',serif;font-weight:400;font-size:22px;line-height:1.2;color:var(--ink);letter-spacing:-.015em;flex:1;}
-.nav-item-name em{font-style:italic;color:var(--terracotta);}
-.nav-item-arrow{font-family:'Fraunces',serif;font-size:18px;color:var(--mute);transition:transform .25s ease,color .25s ease;}
-.nav-item:active .nav-item-arrow{transform:translateX(6px);color:var(--terracotta);}
-#pg-apt{background:var(--cream);}
-.apt-hero{margin:0 0 40px;position:relative;}
-.apt-hero img{width:100%;height:56vh;min-height:420px;object-fit:cover;display:block;}
-.apt-hero-caption{padding:16px 28px 0;display:flex;justify-content:space-between;align-items:baseline;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:600;}
-.apt-hero-caption em{font-family:'Fraunces',serif;font-style:italic;text-transform:none;letter-spacing:-.005em;font-size:14px;color:var(--terracotta);font-weight:400;}
-.gallery-section{padding:0 0 24px;}
-.gallery-intro{padding:0 28px 28px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;}
-.gallery-intro-text{flex:1;}
-.gallery-hint{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--mute);letter-spacing:-.005em;flex-shrink:0;padding-bottom:4px;}
-.gallery-hint::after{content:' →';color:var(--terracotta);}
-.gallery{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 28px;scrollbar-width:none;}
-.gallery::-webkit-scrollbar{display:none;}
-.gallery-item{flex:0 0 78vw;max-width:340px;scroll-snap-align:start;}
-.gallery-photo{width:100%;height:58vw;max-height:440px;object-fit:cover;display:block;margin-bottom:14px;}
-.gallery-caption{padding:0 2px;}
-.gallery-caption-name{font-family:'Fraunces',serif;font-weight:500;font-size:18px;letter-spacing:-.015em;color:var(--ink);margin-bottom:3px;}
-.gallery-caption-name em{font-style:italic;font-weight:400;color:var(--terracotta);}
-.gallery-caption-detail{font-size:12.5px;color:var(--mute);letter-spacing:.01em;}
-.amenities{padding:0 28px;}
-.amenities-head{margin-bottom:28px;}
-.amenity{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);}
-.amenity:first-of-type{border-top:1px solid var(--line);}
-.amenity-num{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--gold-dust);flex-shrink:0;min-width:24px;}
-.amenity-body{flex:1;}
-.amenity-name{font-family:'Fraunces',serif;font-weight:500;font-size:17px;letter-spacing:-.01em;color:var(--ink);margin-bottom:2px;}
-.amenity-detail{font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
-.notice{margin:36px 28px 0;padding:24px 22px;background:var(--paper);border-left:2px solid var(--terracotta);position:relative;}
-.notice-label{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--terracotta);letter-spacing:.05em;margin-bottom:8px;}
-.notice-title{font-family:'Fraunces',serif;font-weight:500;font-size:18px;letter-spacing:-.01em;color:var(--ink);margin-bottom:10px;line-height:1.25;}
-.notice p{font-size:13.5px;line-height:1.6;color:var(--ink-soft);}
-.notice p strong{color:var(--ink);font-weight:600;}
-.hours{margin:36px 28px 0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.hour{padding:24px 0;text-align:center;}
-.hour:first-child{border-right:1px solid var(--line);}
-.hour-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:10px;}
-.hour-value{font-family:'Fraunces',serif;font-weight:400;font-size:26px;letter-spacing:-.02em;color:var(--ink);margin-bottom:4px;}
-.hour-value em{font-style:italic;color:var(--terracotta);}
-.hour-sub{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--mute);}
-.cond-section{padding:48px 0 0;}
-.cond-head{padding:0 28px 24px;}
-.cond-photos{padding:0 28px;display:flex;flex-direction:column;gap:16px;}
-.cond-photo{position:relative;}
-.cond-photo img{width:100%;height:48vw;max-height:280px;object-fit:cover;display:block;}
-.cond-caption{margin-top:12px;display:flex;justify-content:space-between;align-items:baseline;}
-.cond-caption-name{font-family:'Fraunces',serif;font-weight:500;font-size:16px;color:var(--ink);letter-spacing:-.01em;}
-.cond-caption-tag{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--mute);font-weight:600;}
-.featured-photo{padding:0 28px;margin-bottom:40px;}
-.featured-photo-img{width:100%;height:48vh;min-height:340px;object-fit:cover;display:block;margin-bottom:14px;}
-.featured-photo-cap{display:flex;justify-content:space-between;align-items:baseline;}
-.featured-photo-name{font-family:'Fraunces',serif;font-weight:500;font-size:20px;letter-spacing:-.015em;color:var(--ink);}
-.featured-photo-name em{font-style:italic;color:var(--terracotta);font-weight:400;}
-.featured-photo-tag{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--mute);font-weight:600;}
-.entries{padding:0 28px;}
-.entries-head{margin-bottom:24px;}
-.entry{padding:22px 0;border-bottom:1px solid var(--line);display:flex;gap:18px;align-items:flex-start;}
-.entry:first-of-type{border-top:1px solid var(--line);}
-.entry-num{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--gold-dust);flex-shrink:0;min-width:28px;}
-.entry-body{flex:1;min-width:0;}
-.entry-name{font-family:'Fraunces',serif;font-weight:500;font-size:17px;letter-spacing:-.01em;color:var(--ink);margin-bottom:3px;line-height:1.25;}
-.entry-name em{font-style:italic;font-weight:400;color:var(--terracotta);}
-.entry-meta{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:8px;}
-.entry-detail{font-size:13.5px;color:var(--ink-soft);line-height:1.6;}
-.entry-detail strong{color:var(--ink);font-weight:600;}
-.rules-grid{padding:0 28px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);}
-.rule-item{padding:22px 16px 22px 0;border-bottom:1px solid var(--line);}
-.rule-item:nth-child(odd){border-right:1px solid var(--line);padding-right:20px;}
-.rule-item:nth-child(even){padding-left:20px;padding-right:0;}
-.rule-item-num{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--gold-dust);margin-bottom:6px;}
-.rule-item-name{font-family:'Fraunces',serif;font-weight:500;font-size:16px;letter-spacing:-.01em;color:var(--ink);margin-bottom:4px;}
-.rule-item-name em{font-style:italic;color:var(--terracotta);}
-.rule-item-detail{font-size:12.5px;color:var(--ink-soft);line-height:1.5;}
-.wifi-card{margin:0 28px 32px;padding:32px 24px;background:var(--ink);color:#fff;position:relative;}
-.wifi-card-label{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--gold-dust);letter-spacing:.05em;margin-bottom:18px;}
-.wifi-field{margin-bottom:18px;}
-.wifi-field:last-child{margin-bottom:0;}
-.wifi-field-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:600;margin-bottom:6px;}
-.wifi-field-value{font-family:'Fraunces',serif;font-weight:400;font-size:22px;letter-spacing:-.01em;color:#fff;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:8px;}
-.wifi-note{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.15);font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.5;}
-.contacts{padding:0 28px;}
-.contact{padding:20px 0;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:18px;}
-.contact:first-of-type{border-top:1px solid var(--line);}
-.contact-num{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--gold-dust);flex-shrink:0;min-width:24px;}
-.contact-body{flex:1;}
-.contact-name{font-family:'Fraunces',serif;font-weight:500;font-size:15.5px;color:var(--ink);letter-spacing:-.005em;margin-bottom:3px;}
-.contact-detail{font-size:12.5px;color:var(--ink-soft);}
-.funil{padding:0 28px;}
-.funil-card{background:var(--paper);padding:32px 24px;border:1px solid var(--line);margin-top:16px;}
-.funil-card-title{font-family:'Fraunces',serif;font-weight:500;font-size:22px;line-height:1.2;letter-spacing:-.015em;color:var(--ink);margin-bottom:10px;}
-.funil-card-title em{font-style:italic;color:var(--terracotta);}
-.funil-card-sub{font-family:'Fraunces',serif;font-weight:300;font-size:15px;line-height:1.5;color:var(--ink-soft);margin-bottom:22px;letter-spacing:-.003em;}
-.funil-btn{display:block;width:100%;padding:16px 20px;margin-bottom:10px;background:transparent;border:1px solid var(--line-strong);color:var(--ink);text-align:center;text-decoration:none;font-family:'Fraunces',serif;font-weight:500;font-size:15px;letter-spacing:-.005em;cursor:pointer;transition:background .2s ease,border-color .2s ease;}
-.funil-btn:active{background:var(--cream-deep);border-color:var(--terracotta);}
-.funil-btn em{font-style:italic;color:var(--terracotta);}
-.funil-btn.primary{background:var(--terracotta);color:#fff;border-color:var(--terracotta);}
-.funil-btn.primary:active{background:var(--terracotta-deep);}
-.funil-btn.primary em{color:var(--gold-dust);}
-#qr-box{display:block;background:#fff;padding:16px;margin:20px auto;width:fit-content;}
-.funil-stars{text-align:center;font-size:20px;letter-spacing:.4em;color:var(--gold-dust);margin:14px 0;}
-#pg-reservar{background:var(--cream);}
-.form-card{padding:0 28px 28px;}
-.form-field{margin-bottom:22px;}
-.form-label{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:10px;}
-.form-input,.form-select{width:100%;padding:14px 16px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-family:'Karla',sans-serif;font-size:15px;transition:border-color .2s ease,background .2s ease;outline:none;-webkit-appearance:none;}
-.form-input:focus,.form-select:focus{border-color:var(--terracotta);background:#fff;}
-.form-input::placeholder{color:var(--mute);font-family:'Fraunces',serif;font-style:italic;font-weight:300;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.cupom-row{display:flex;gap:10px;}
-.cupom-row .form-input{flex:1;}
-.cupom-btn{padding:0 20px;background:var(--ink);color:#fff;border:none;font-family:'Fraunces',serif;font-weight:500;font-size:14px;cursor:pointer;letter-spacing:-.005em;}
-.cupom-btn:active{background:var(--terracotta);}
-.submit-btn{display:block;width:100%;margin-top:12px;padding:20px;background:var(--terracotta);color:#fff;border:none;font-family:'Fraunces',serif;font-weight:500;font-size:17px;letter-spacing:-.005em;cursor:pointer;transition:background .2s ease;}
-.submit-btn:active{background:var(--terracotta-deep);}
-.submit-btn em{font-style:italic;color:var(--gold-dust);}
-.benefits{margin:40px 28px 0;padding:32px 24px;background:var(--paper);border-left:2px solid var(--moss);}
-.benefits-title{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:20px;letter-spacing:-.01em;color:var(--ink);margin-bottom:20px;}
-.benefit{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:16px;align-items:baseline;}
-.benefit:last-child{border-bottom:none;padding-bottom:0;}
-.benefit-num{font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--moss);flex-shrink:0;min-width:20px;}
-.benefit-body{flex:1;}
-.benefit-name{font-family:'Fraunces',serif;font-weight:500;font-size:15px;color:var(--ink);letter-spacing:-.005em;margin-bottom:2px;}
-.benefit-detail{font-size:13px;color:var(--ink-soft);line-height:1.5;}
-.nav{height:calc(var(--nav) + var(--safe-bottom));padding-bottom:var(--safe-bottom);background:var(--paper);border-top:1px solid var(--line);display:flex;align-items:stretch;flex-shrink:0;z-index:200;position:relative;}
-.nb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;border:none;background:transparent;padding:8px 2px;position:relative;}
-.nb-label{font-family:'Fraunces',serif;font-size:13px;font-weight:400;letter-spacing:-.005em;color:var(--mute);transition:color .2s ease;}
-.nb.on .nb-label{color:var(--ink);font-style:italic;}
-.nb::after{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:0;height:2px;background:var(--terracotta);transition:width .3s cubic-bezier(.34,1.56,.64,1);}
-.nb.on::after{width:22px;}
-.fab-reservar{position:fixed;right:20px;bottom:calc(var(--nav) + var(--safe-bottom) + 20px);z-index:300;display:flex;align-items:center;gap:10px;padding:16px 22px;background:var(--terracotta);color:#fff;border:none;border-radius:100px;font-family:'Fraunces',serif;font-weight:500;font-size:15px;letter-spacing:-.005em;box-shadow:0 8px 24px rgba(184,98,74,0.35),0 2px 6px rgba(184,98,74,0.2);cursor:pointer;transition:transform .25s ease;animation:fabEnter .6s ease .4s both;}
-.fab-reservar:active{transform:scale(.96);}
-.fab-reservar.hidden{display:none;}
-@keyframes fabEnter{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-.fab-reservar-dot{width:8px;height:8px;border-radius:50%;background:var(--gold-dust);animation:fabBlink 2s ease-in-out infinite;}
-@keyframes fabBlink{0%,100%{opacity:1;}50%{opacity:.3;}}
-#splash{position:fixed;inset:0;z-index:9999;background:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;}
-#splash img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;}
-.splash-inner{position:relative;z-index:2;text-align:center;padding:0 32px;color:#fff;}
-.splash-ey{font-family:'Fraunces',serif;font-style:italic;font-size:16px;letter-spacing:.1em;color:rgba(255,255,255,0.7);font-weight:300;margin-bottom:12px;animation:fade .8s ease .3s both;}
-.splash-title{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(62px,18vw,100px);line-height:.92;letter-spacing:-.045em;color:#fff;margin-bottom:24px;animation:fade .8s ease .5s both;}
-.splash-title em{font-style:italic;font-weight:300;color:var(--gold-dust);display:block;}
-.splash-hint{font-family:'Fraunces',serif;font-style:italic;font-size:13px;letter-spacing:.15em;color:rgba(255,255,255,0.5);margin-top:36px;animation:fade .8s ease 1s both;}
-@keyframes fade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-#splash.hiding{animation:splashOut .5s ease forwards;pointer-events:none;}
-@keyframes splashOut{to{opacity:0;transform:scale(1.03);}}
+/* Layout: "a maré sobe pela parede". A foto real abre a página e uma crista de pastilhas cresce a cada seção até virar a reserva. */
+:root{
+  --ceu:#1F62B0;
+  --cimento:#DAD8D2;
+  --cal:#F5F4F0;
+  --tinta:#101D3C;
+  --cobalto:#1A2EA8;
+  --gema:#F2B705;
+  --jacaranda:#4A2118;
+  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --corpo:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif;
+  --lado:max(16px,env(safe-area-inset-left,0px));
+  --lado-d:max(16px,env(safe-area-inset-right,0px));
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--cal);color:var(--tinta);font:400 17px/1.6 var(--corpo)}
+img{display:block;width:100%;height:100%;object-fit:cover}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.06;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+ul{margin:0;padding:0;list-style:none}
+:focus-visible{outline:3px solid var(--gema);outline-offset:2px}
+.faixa{padding-left:var(--lado);padding-right:var(--lado-d)}
+.miolo{max-width:1120px;margin-inline:auto}
+.miolo.faixa{max-width:calc(1120px + var(--lado) + var(--lado-d))}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border:0;font:700 17px var(--corpo);text-decoration:none;cursor:pointer;text-align:center}
+.btn-gema{background:var(--gema);color:var(--tinta)}
+.btn-gema:hover{background:#FFC928}
+.btn-tinta{background:var(--tinta);color:#fff}
+.btn-clara{background:var(--cal);color:var(--tinta)}
+.acoes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.acoes .btn,.barra .btn{padding:0 6px;font-size:16px}
+
+/* topo */
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:7;background:var(--cal)}
+.topo .miolo{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:52px}
+.marca{font:600 21px/1 var(--display);text-decoration:none}
+.topo nav{display:flex;gap:24px;font-size:15px;font-weight:500}
+.topo nav a{text-decoration:none}
+.topo nav a:hover{text-decoration:underline}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--cal)}
+
+/* capa */
+.capa{position:relative;overflow:hidden;background:var(--ceu);color:#fff;display:grid}
+.capa-foto{position:relative;aspect-ratio:11/20;min-width:0}
+.capa-foto img{object-position:45% 50%}
+.capa-foto::after{content:"";position:absolute;inset:auto 0 0;height:36%;background:linear-gradient(to top,rgba(16,29,60,.96) 52%,rgba(16,29,60,0))}
+.capa-lado{display:contents}
+.longo{display:none}
+.lead{padding-top:16px;font-size:18px;font-weight:500}
+.capa-titulo{position:absolute;z-index:2;top:14px;left:var(--lado);right:var(--lado-d)}
+.capa h1{font-weight:600;font-size:clamp(40px,11vw,84px);line-height:1;letter-spacing:-.015em}
+.capa h1 em{display:block;font-weight:400;color:var(--gema)}
+.capa-acao{position:absolute;z-index:2;left:var(--lado);right:var(--lado-d);bottom:58px;display:grid;gap:8px;color:#fff}
+.capa-acao p{font-size:18px;line-height:1.3;font-weight:700;max-width:30em}
+.capa .btn{justify-self:start}
+.capa .btn-tinta{background:var(--cal);color:var(--tinta)}
+.capa .crista{position:absolute;z-index:3;inset:auto 0 -1px}
+@media(min-width:640px){
+  .capa{grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--cal);color:var(--tinta);min-height:640px}
+  .capa-acao{color:var(--tinta)}
+  .capa-foto::after{display:none}
+  .capa-lado{display:grid;align-content:center;gap:18px;padding-block:40px 84px;padding-left:max(var(--lado),calc((100vw - 1120px)/2));padding-right:32px;min-width:0}
+  .capa .btn-tinta{background:var(--tinta);color:#fff}
+  .capa-titulo,.capa-acao{position:static}
+  .acoes{grid-template-columns:auto auto;justify-content:start}
+  .acoes .btn{padding:0 22px;font-size:17px}
+  .curto,.lead{display:none}
+  .longo{display:inline}
+  .capa h1 em{color:var(--cobalto)}
+  .capa-acao p{font-size:19px;font-weight:400}
+  .capa-foto{order:2;aspect-ratio:auto;height:100%;max-height:760px}
+  .capa-foto img{object-position:50% 62%}
+}
+
+/* crista */
+.crista{height:var(--h);background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22480%22 height=%2296%22%3E%3Crect x=%221%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2225%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2225%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2249%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2249%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2273%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2273%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2273%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2297%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2297%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2297%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%2297%22 y=%221%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22121%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22121%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22121%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22145%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22145%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22169%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22169%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22193%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22217%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22217%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22241%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22241%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22241%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22265%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22265%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22265%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22289%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22289%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22289%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22289%22 y=%221%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22313%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22313%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22313%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22313%22 y=%221%22 width=%2222%22 height=%2222%22 fill=%22%23F2B705%22/%3E%3Crect x=%22337%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22337%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22337%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22361%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22361%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22385%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22409%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22433%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22433%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22457%22 y=%2273%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22457%22 y=%2249%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3Crect x=%22457%22 y=%2225%22 width=%2222%22 height=%2222%22 fill=%22%231A2EA8%22/%3E%3C/svg%3E") left bottom/auto 96px repeat-x}
+.c1{--h:48px}.c2{--h:72px}.c3{--h:96px}
+
+/* ficha */
+.ficha{background:var(--cobalto);color:#fff}
+.ficha ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 8px;padding-block:18px 24px}
+.ficha b{display:block;font:600 34px/1 var(--display);color:var(--gema)}
+.ficha span{font-size:15px;line-height:1.25;display:block;padding-top:3px}
+@media(min-width:760px){.ficha ul{grid-template-columns:repeat(6,minmax(0,1fr))}}
+
+/* seções */
+.secao{padding-block:52px}
+.cab{display:grid;gap:8px;margin-bottom:24px;max-width:38em}
+.cab h2{font-size:clamp(32px,7vw,52px)}
+
+/* filme */
+.filme{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--lado-d) 12px var(--lado);scroll-padding-left:var(--lado);-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.plano{position:relative;flex:0 0 min(80vw,350px);aspect-ratio:4/5;overflow:hidden;background:var(--cimento);scroll-snap-align:start;margin:0}
+.plano video{display:block;width:100%;height:100%;object-fit:cover}
+.plano figcaption{pointer-events:none}
+.plano img,.quadro img{transform:scale(var(--e,1));transform-origin:var(--o,50% 50%)}
+.anima .plano img,.anima .quadro img{transform:scale(calc(var(--e,1)*1.08));transition:transform 2.4s cubic-bezier(.22,1,.36,1)}
+.anima .ver img{transform:scale(var(--e,1))}
+.plano figcaption{position:absolute;inset:auto 0 0;padding:64px 14px 12px;color:#fff;background:linear-gradient(to top,rgba(16,29,60,.86),rgba(16,29,60,0));display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline}
+.plano figcaption b{font:400 italic 20px var(--display);color:var(--gema)}
+.plano figcaption span{font:400 22px/1.15 var(--display)}
+.controle{display:none;gap:8px;margin-top:10px}
+.controle button{width:48px;height:48px;border:2px solid var(--tinta);background:transparent;color:var(--tinta);font:700 20px var(--corpo);cursor:pointer}
+.controle button:hover{background:var(--tinta);color:#fff}
+@media(min-width:900px){.controle{display:flex}.filme{padding-left:max(var(--lado),calc((100vw - 1120px)/2));scroll-padding-left:max(var(--lado),calc((100vw - 1120px)/2))}}
+
+/* camas */
+.camas{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.cama{min-width:0;margin:0;display:grid;align-content:start}
+.quadro{aspect-ratio:1/1;overflow:hidden;background:var(--cimento)}
+.cama figcaption{padding-top:7px;line-height:1.3;font-size:16px}
+.cama figcaption b{display:block}
+.cama.texto{background:var(--cimento);padding:14px;align-content:end;gap:6px}
+.cama.texto strong{font:600 44px/1 var(--display);color:var(--cobalto)}
+.aviso{margin-top:14px;font-weight:500;color:var(--jacaranda)}
+@media(min-width:760px){.camas{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* lazer */
+.lazer{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+.lazer article{min-width:0;display:grid;gap:6px;align-content:start}
+.lazer .quadro{aspect-ratio:5/4}
+.lazer h3{font-size:25px;margin-top:6px}
+@media(min-width:760px){.lazer{grid-template-columns:repeat(2,minmax(0,1fr))}.lazer .quadro{aspect-ratio:4/3}}
+
+/* local e antes */
+.duas{display:grid;gap:34px;grid-template-columns:minmax(0,1fr)}
+.duas>*{min-width:0}
+@media(min-width:860px){.duas{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}}
+.ficha-texto li{padding:11px 0;border-top:1px solid #BDBAB0;display:grid;gap:0}
+.ficha-texto li:last-child{border-bottom:1px solid #BDBAB0}
+.ficha-texto b{font-weight:700}
+.link{font-weight:700;color:var(--cobalto)}
+.traga{display:flex;flex-wrap:wrap;gap:8px}
+.traga li{background:var(--cimento);padding:4px 12px;font-weight:500}
+.sub{font:400 25px/1.1 var(--display);margin:0 0 12px}
+details{border-top:1px solid #BDBAB0;padding:12px 0}
+details:last-of-type{border-bottom:1px solid #BDBAB0}
+summary{font:400 21px/1.25 var(--display);cursor:pointer}
+details p{padding-top:6px;max-width:38em}
+
+/* reserva */
+.reserva{background:var(--cobalto);color:#fff}
+.reserva .secao{padding-top:32px}
+form{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px}
+.campo{display:grid;gap:5px;min-width:0}
+.tudo{grid-column:1/-1}
+label{font-size:15px;font-weight:700}
+input,select{width:100%;min-width:0;min-height:52px;padding:10px 12px;border:3px solid transparent;background:var(--cal);color:var(--tinta);font:400 16px var(--corpo);border-radius:0;-webkit-appearance:none;appearance:none}
+input[type=date]{padding-inline:8px;font-size:15px}
+[aria-invalid=true]{border-color:var(--gema)}
+.erro{font-weight:700;color:var(--gema)}
+.alt{display:flex;margin-top:14px;max-width:620px}
+.nota{margin-top:8px;font-size:15px;max-width:620px}
+
+footer{background:var(--tinta);color:var(--cal)}
+footer .miolo{padding-block:22px;display:grid;gap:2px;font-size:15px}
+footer strong{font:400 21px var(--display)}
+
+/* barra */
+.barra{gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--tinta);padding:9px var(--lado-d) calc(9px + env(safe-area-inset-bottom,0px)) var(--lado);display:flex}
+.barra .btn{flex:1;min-height:48px}
+@media(max-width:699px){.topo nav{display:none}}
+@media(min-width:900px){.barra{display:none!important}}
+@media(max-width:899px){body.com-barra{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="app">
 
-<div id="splash" onclick="closeSplash()">
-  <img src="img/01-splash-ciclista.jpg" alt="">
-  <div class="splash-inner">
-    <div class="splash-ey">Bertioga · Litoral Paulista</div>
-    <h1 class="splash-title">Maré Alta<em>Costa Brava</em></h1>
-    <div class="splash-hint">toque para entrar</div>
+<header class="topo faixa">
+  <div class="miolo">
+    <a class="marca" href="#inicio">Maré Alta 203</a>
+    <nav aria-label="Seções">
+      <a href="#duplex">O duplex</a>
+      <a href="#quartos">Quartos</a>
+      <a href="#lazer">Lazer</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#reservar">Reservar</a>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="pages">
-
-<!-- HOME -->
-<div class="page active" id="pg-home">
-  <section class="hero">
-    <img class="hero-img" src="img/01-splash-ciclista.jpg" alt="">
-    <div class="hero-shade"></div>
-    <div class="hero-content">
-      <div class="hero-mark"><div class="hero-mark-line"></div><div class="hero-mark-text">Apartamento 203</div></div>
-      <div class="hero-text">
-        <div class="hero-eyebrow">Bertioga · Maitinga</div>
-        <h1 class="hero-title">Maré Alta<em>Costa Brava</em></h1>
-        <p class="hero-sub">Um duplex para quem busca <strong>conforto e mar</strong> a cem metros da areia.</p>
-      </div>
-      <div class="hero-foot">
-        <div>23°51′S · 46°07′W</div>
-        <div class="hero-foot-scroll"><span>role</span><div class="scroll-line"></div></div>
+<main id="inicio">
+  <section class="capa">
+    <div class="capa-foto"><img src="img/capa-piscina.jpg" alt="Vista ampla do condomínio, com prédios de varandas azuis, palmeiras, piscina e deck" fetchpriority="high"></div>
+    <div class="capa-lado">
+      <div class="capa-titulo"><h1>Cabe a família toda. <em>E o pet também.</em></h1></div>
+      <div class="capa-acao">
+        <p><span class="curto">Duplex em Maitinga, Bertioga</span><span class="longo">Duplex para até 8 em Maitinga, Bertioga, com piscina no condomínio e praia a cerca de 100&nbsp;m.</span></p>
+        <div class="acoes" id="cta-capa"><a class="btn btn-gema" href="https://wa.me/5513947963159?text=Ol%C3%A1%2C%20Kaue%21%20Quero%20saber%20sobre%20o%20Mar%C3%A9%20Alta%20203." target="_blank" rel="noopener">Falar com anfitrião</a><a class="btn btn-tinta" href="https://www.airbnb.com.br/rooms/1649932875089753780" target="_blank" rel="noopener">Reservar no Airbnb</a></div>
       </div>
     </div>
+    <div class="crista c1" aria-hidden="true"></div>
   </section>
 
-  <article class="letter">
-    <div class="letter-meta">boas-vindas</div>
-    <h2 class="letter-title">Seja <em>bem-vindo</em> à nossa casa de praia.</h2>
-    <p>Um dia, um fim de semana, uma semana inteira — este duplex foi pensado para quem não abre mão de conforto e localização.</p>
-    <p>Três quartos com camas de casal, sofá-cama para dois, cozinha completa, piscina e churrasqueira no condomínio. Tudo a cem metros da praia de Maitinga.</p>
-    <p>Fique completamente à vontade. Aqui, tudo é seu.</p>
-    <div class="letter-sign">Kaue, seu anfitrião</div>
-  </article>
-
-  <section class="specs">
-    <div class="specs-grid">
-      <div class="spec"><div class="spec-label">Formato</div><div class="spec-value">Duplex · <em>2 andares</em></div></div>
-      <div class="spec"><div class="spec-label">Capacidade</div><div class="spec-value">Até <em>8</em> hóspedes</div></div>
-      <div class="spec"><div class="spec-label">Quartos</div><div class="spec-value">3 + <em>sofá</em></div></div>
-      <div class="spec"><div class="spec-label">Da praia</div><div class="spec-value"><em>100</em> metros</div></div>
-    </div>
+  <section class="ficha faixa" aria-label="Resumo do apartamento">
+    <p class="miolo lead">Piscina no condomínio e praia a cerca de 100&nbsp;m.</p>
+    <ul class="miolo">
+      <li><b>8</b><span>hóspedes</span></li>
+      <li><b>3</b><span>quartos de casal</span></li>
+      <li><b>2</b><span>banheiros</span></li>
+      <li><b>1</b><span>sofá-cama</span></li>
+      <li><b>2</b><span>vagas</span></li>
+      <li><b>Pet</b><span>bem-vindo</span></li>
+    </ul>
   </section>
 
-  <div class="rule ornate"><span>✦</span></div>
-
-  <nav class="nav-index">
-    <div class="nav-index-title">no seu guia</div>
-    <button class="nav-item" onclick="goTo('pg-apt')"><span class="nav-item-num">I</span><span class="nav-item-name">O <em>Apartamento</em></span><span class="nav-item-arrow">→</span></button>
-    <button class="nav-item" onclick="goTo('pg-praias')"><span class="nav-item-num">II</span><span class="nav-item-name">As <em>Praias</em></span><span class="nav-item-arrow">→</span></button>
-    <button class="nav-item" onclick="goTo('pg-comer')"><span class="nav-item-num">III</span><span class="nav-item-name">Dicas <em>Locais</em></span><span class="nav-item-arrow">→</span></button>
-    <button class="nav-item" onclick="goTo('pg-pass')"><span class="nav-item-num">IV</span><span class="nav-item-name">Passeios & <em>Aventuras</em></span><span class="nav-item-arrow">→</span></button>
-    <button class="nav-item" onclick="goTo('pg-regras')"><span class="nav-item-num">V</span><span class="nav-item-name">Regras da <em>Casa</em></span><span class="nav-item-arrow">→</span></button>
-    <button class="nav-item" onclick="goTo('pg-wifi')"><span class="nav-item-num">VI</span><span class="nav-item-name">Wi-Fi & <em>Contatos</em></span><span class="nav-item-arrow">→</span></button>
-  </nav>
-</div>
-
-<!-- APT -->
-<div class="page" id="pg-apt">
-  <header class="page-header">
-    <div class="eyebrow">capítulo I</div>
-    <h1 class="h2">O <em>Apartamento</em></h1>
-    <p class="lede" style="margin-top:14px;">Duplex com pé-direito alto, design autoral e cem metros da praia de Maitinga.</p>
-  </header>
-
-  <figure class="apt-hero">
-    <img src="img/02-apt-sala-mezanino.jpg" alt="">
-    <figcaption class="apt-hero-caption"><span>fig. 01 · sala principal</span><em>Maré Alta 203</em></figcaption>
-  </figure>
-
-  <section class="gallery-section">
-    <div class="gallery-intro">
-      <div class="gallery-intro-text"><div class="section-meta">Galeria · 15 ambientes</div><h3 class="section-title">Explore o <em>espaço</em></h3></div>
-      <div class="gallery-hint">deslize</div>
-    </div>
-    <div class="gallery">
-      <div class="gallery-item"><img class="gallery-photo" src="img/03-apt-sala-tv.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Sala <em>de estar</em></div><div class="gallery-caption-detail">Cimento queimado · TV · Sofá-cama</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/04-apt-sala-sofa.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Estar <em>amplo</em></div><div class="gallery-caption-detail">Sofá-cama · Piso contínuo</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/05-apt-jantar.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Sala <em>de jantar</em></div><div class="gallery-caption-detail">Mesa para seis · Janelão</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/06-apt-entrada.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Entrada</div><div class="gallery-caption-detail">Corredor · Acesso ao 2º andar</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/07-apt-cozinha-banquetas.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Cozinha <em>gourmet</em></div><div class="gallery-caption-detail">Quatro banquetas · Bancada em madeira</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/08-apt-cozinha-frontal.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Cozinha <em>completa</em></div><div class="gallery-caption-detail">Geladeira · Micro-ondas · Fogão</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/09-apt-cozinha-lateral.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Área <em>de preparo</em></div><div class="gallery-caption-detail">Totalmente equipada</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/10-apt-quarto-suite.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Suíte <em>principal</em></div><div class="gallery-caption-detail">Cama casal · Varanda · Ar-condicionado</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/11-apt-quarto-madeira.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Quarto <em>II</em></div><div class="gallery-caption-detail">Piso de madeira · Painel aconchegante</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/12-apt-quarto-poltrona.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Quarto <em>III</em></div><div class="gallery-caption-detail">Cama casal · Poltrona leitura</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/13-apt-banheiro-duplo.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Banheiro <em>suíte</em></div><div class="gallery-caption-detail">Duas pias · Azulejo verde-mar</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/14-apt-banheiro-box.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Banheiro <em>social</em></div><div class="gallery-caption-detail">Box de vidro · Luz LED</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/15-apt-escada.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Escada <em>caracol</em></div><div class="gallery-caption-detail">Detalhe arquitetônico do duplex</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/16-apt-vista-janela.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Vista <em>superior</em></div><div class="gallery-caption-detail">Condomínio · Montanhas ao fundo</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/17-apt-varanda.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Varanda <em>gourmet</em></div><div class="gallery-caption-detail">Mesa · Vista para a piscina</div></div></div>
-    </div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="amenities">
-    <div class="amenities-head"><div class="section-meta">Comodidades</div><h3 class="section-title">O que <em>está incluso</em></h3></div>
-    <div class="amenity"><div class="amenity-num">i.</div><div class="amenity-body"><div class="amenity-name">Três quartos, três camas de casal</div><div class="amenity-detail">Mais sofá-cama para dois · Total de oito hóspedes</div></div></div>
-    <div class="amenity"><div class="amenity-num">ii.</div><div class="amenity-body"><div class="amenity-name">Piscina no condomínio</div><div class="amenity-detail">Mergulho liberado durante toda a estadia</div></div></div>
-    <div class="amenity"><div class="amenity-num">iii.</div><div class="amenity-body"><div class="amenity-name">Churrasqueira</div><div class="amenity-detail">No condomínio — basta trazer o carvão</div></div></div>
-    <div class="amenity"><div class="amenity-num">iv.</div><div class="amenity-body"><div class="amenity-name">Self check-in</div><div class="amenity-detail">Teclado numérico · Sem esperar ninguém</div></div></div>
-    <div class="amenity"><div class="amenity-num">v.</div><div class="amenity-body"><div class="amenity-name">Duas vagas de garagem</div><div class="amenity-detail">Inclusas na diária</div></div></div>
-    <div class="amenity"><div class="amenity-num">vi.</div><div class="amenity-body"><div class="amenity-name">Cozinha completa, ar-condicionado, Wi-Fi e TV</div><div class="amenity-detail">Todo o conforto de uma casa</div></div></div>
-  </section>
-
-  <aside class="notice">
-    <div class="notice-label">uma observação importante</div>
-    <div class="notice-title">A roupa de cama não está inclusa.</div>
-    <p>Disponibilizamos apenas os <strong>travesseiros</strong>. Traga seus <strong>lençóis, fronhas e toalhas</strong>. Pequeno detalhe para você se planejar antes de vir.</p>
-  </aside>
-
-  <section class="hours">
-    <div class="hour"><div class="hour-label">Check-in</div><div class="hour-value"><em>09</em>–21h</div><div class="hour-sub">código por mensagem</div></div>
-    <div class="hour"><div class="hour-label">Check-out</div><div class="hour-value">até <em>12h</em></div><div class="hour-sub">desligue tudo</div></div>
-  </section>
-
-  <section class="cond-section">
-    <div class="cond-head"><div class="section-meta">No condomínio</div><h3 class="section-title">Área <em>comum</em></h3></div>
-    <div class="cond-photos">
-      <div class="cond-photo"><img src="img/18-cond-piscina-1.jpg" alt="" loading="lazy"><div class="cond-caption"><div class="cond-caption-name">Piscina</div><div class="cond-caption-tag">uso livre</div></div></div>
-      <div class="cond-photo"><img src="img/19-cond-piscina-2.jpg" alt="" loading="lazy"><div class="cond-caption"><div class="cond-caption-name">Área de lazer</div><div class="cond-caption-tag">palmeiras · deck</div></div></div>
-    </div>
-  </section>
-</div>
-
-<!-- PRAIAS -->
-<div class="page" id="pg-praias">
-  <header class="page-header">
-    <div class="eyebrow">capítulo II</div>
-    <h1 class="h2">As <em>Praias</em></h1>
-    <p class="lede" style="margin-top:14px;">Trinta e três quilômetros de litoral — uma praia para cada humor.</p>
-  </header>
-
-  <figure class="featured-photo">
-    <img class="featured-photo-img" src="img/20-praia-maitinga.jpg" alt="Praia de Maitinga" loading="lazy">
-    <div class="featured-photo-cap"><div class="featured-photo-name">Praia de <em>Maitinga</em></div><div class="featured-photo-tag">100m do apê</div></div>
-    <p class="body-text" style="margin-top:10px;">Mar calmo, areia limpa, quiosques e salva-vidas o ano todo.</p>
-  </figure>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Outras praias</div><h3 class="section-title">Para <em>explorar</em></h3></div>
-    <div class="entry"><div class="entry-num">i.</div><div class="entry-body"><div class="entry-name">Praia do <em>Indaiá</em></div><div class="entry-meta">~10km · Mata Atlântica</div><div class="entry-detail">Floresta até a areia. Mar esmeralda. Um dos recantos mais bonitos da região.</div></div></div>
-    <div class="entry"><div class="entry-num">ii.</div><div class="entry-body"><div class="entry-name">Rio & Mar <em>Indaiá</em></div><div class="entry-meta">~10km · Encontro das águas</div><div class="entry-detail">Vista aérea única onde o rio desemboca no oceano. Cenário de cartão-postal.</div></div></div>
-    <div class="entry"><div class="entry-num">iii.</div><div class="entry-body"><div class="entry-name">Praia de <em>Itaguaré</em></div><div class="entry-meta">~18km · Extensa, quase deserta</div><div class="entry-detail">Longa faixa de areia com ondas. Ideal para quem busca tranquilidade e caminhada.</div></div></div>
-    <div class="entry"><div class="entry-num">iv.</div><div class="entry-body"><div class="entry-name">Rio <em>Itapanhaú</em></div><div class="entry-meta">~5km · Águas cristalinas</div><div class="entry-detail">SUP, caiaque e snorkel. Um segredo bem-guardado de Bertioga.</div></div></div>
-    <div class="entry"><div class="entry-num">v.</div><div class="entry-body"><div class="entry-name">Praia de <em>São Lourenço</em></div><div class="entry-meta">~12km · Orla estruturada</div><div class="entry-detail">Calçadão, quiosques e vista para a ilha. Para dias de sol sem mistério.</div></div></div>
-  </section>
-
-  <section class="gallery-section" style="margin-top:40px;">
-    <div class="gallery-intro"><div class="gallery-intro-text"><div class="section-meta">Galeria</div><h3 class="section-title">Vistas da <em>costa</em></h3></div><div class="gallery-hint">deslize</div></div>
-    <div class="gallery">
-      <div class="gallery-item"><img class="gallery-photo" src="img/21-praia-indaia.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Indaiá</div><div class="gallery-caption-detail">Mar esmeralda</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/22-praia-rio-mar.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Rio & Mar</div><div class="gallery-caption-detail">Encontro das águas</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/23-praia-itaguare.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Itaguaré</div><div class="gallery-caption-detail">Areia extensa</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/24-praia-itapanhau.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">Itapanhaú</div><div class="gallery-caption-detail">Rio cristalino</div></div></div>
-      <div class="gallery-item"><img class="gallery-photo" src="img/25-praia-sao-lourenco.jpg" alt="" loading="lazy"><div class="gallery-caption"><div class="gallery-caption-name">São Lourenço</div><div class="gallery-caption-detail">Orla com quiosques</div></div></div>
-    </div>
-  </section>
-</div>
-
-<!-- DICAS -->
-<div class="page" id="pg-comer">
-  <header class="page-header">
-    <div class="eyebrow">capítulo III</div>
-    <h1 class="h2">Dicas <em>Locais</em></h1>
-    <p class="lede" style="margin-top:14px;">Mercados, padarias, restaurantes e o que fazer à noite em Bertioga.</p>
-  </header>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Mercados</div><h3 class="section-title">Para <em>abastecer</em></h3></div>
-    <div class="entry"><div class="entry-num">i.</div><div class="entry-body"><div class="entry-name">Tenda <em>Atacado</em></div><div class="entry-meta">O maior da região · Atacarejo</div><div class="entry-detail">Quatro mil metros quadrados: hortifrúti, açougue, bebidas geladas, 340 vagas. Ótimo para compras completas da estadia. <strong>Av. Marginal Sul–Rio-Santos, 9.520 · Seg–Sáb 7h–22h · Dom 7h–20h.</strong></div></div></div>
-    <div class="entry"><div class="entry-num">ii.</div><div class="entry-body"><div class="entry-name">Mercatil</div><div class="entry-meta">Centro · Conveniente</div><div class="entry-detail">Bom para compras rápidas do dia a dia. Bem localizado.</div></div></div>
-    <div class="entry"><div class="entry-num">iii.</div><div class="entry-body"><div class="entry-name">Swift</div><div class="entry-meta">~7km · Supermercado de rede</div><div class="entry-detail">Variedade e praticidade para quem quer um mercado com bom estoque.</div></div></div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Farmácia</div><h3 class="section-title">Para <em>emergências</em></h3></div>
-    <div class="entry"><div class="entry-num">i.</div><div class="entry-body"><div class="entry-name">Droga <em>Raia</em></div><div class="entry-meta">Rede grande · Aferição de pressão</div><div class="entry-detail">Maior rede da região. Medicamentos, dermocosméticos, vacinas. <strong>Rua Manoel Gajo, 551 · Parque Estoril.</strong></div></div></div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Padarias</div><h3 class="section-title">Pão <em>fresquinho</em></h3></div>
-    <div class="entry"><div class="entry-num">i.</div><div class="entry-body"><div class="entry-name">Padaria <em>Bela</em></div><div class="entry-meta">Recomendação top · Centro</div><div class="entry-detail"><strong>A melhor padaria de Bertioga.</strong> Pão quentinho, café fresquinho e salgados incríveis. Começa o dia certo antes da praia.</div></div></div>
-    <div class="entry"><div class="entry-num">ii.</div><div class="entry-body"><div class="entry-name">Padaria <em>Quatro Ases</em></div><div class="entry-meta">Centro · Café da manhã completo</div><div class="entry-detail">Outra ótima opção para pão fresquinho e um café da manhã bem servido.</div></div></div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Frutos do mar</div><h3 class="section-title">O melhor do <em>mar</em></h3></div>
-    <div class="entry"><div class="entry-num">i.</div><div class="entry-body"><div class="entry-name">Restaurante <em>Vista Mar</em></div><div class="entry-meta">Orla · Premium</div><div class="entry-detail">Peixe fresco com vista para o mar. Perfeito para um jantar especial.</div></div></div>
-    <div class="entry"><div class="entry-num">ii.</div><div class="entry-body"><div class="entry-name">Quiosque <em>do Índio</em></div><div class="entry-meta">Praia · Descontraído</div><div class="entry-detail">Almoço na areia, porções generosas e cerveja gelada. Sem cerimônia.</div></div></div>
-    <div class="entry"><div class="entry-num">iii.</div><div class="entry-body"><div class="entry-name">Peixe <em>Fino</em></div><div class="entry-meta">Centro · Jantar</div><div class="entry-detail">Referência em Bertioga para quem quer o melhor do mar.</div></div></div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Área central</div><h3 class="section-title">Para <em>todos os gostos</em></h3></div>
-    <div class="entry"><div class="entry-num">i.</div><div class="entry-body"><div class="entry-name">Sandy <em>Restaurante</em></div><div class="entry-meta">Calçadão do Canal</div><div class="entry-detail">Um dos mais bem-avaliados da orla. Frutos do mar e ambiente aconchegante.</div></div></div>
-    <div class="entry"><div class="entry-num">ii.</div><div class="entry-body"><div class="entry-name">Pizzaria <em>Aquarela</em></div><div class="entry-meta">Centro · Pizza & sorvete</div><div class="entry-detail">Clássico de Bertioga. Ótima para família — pizza no jantar e sorvete na sobremesa.</div></div></div>
-    <div class="entry"><div class="entry-num">iii.</div><div class="entry-body"><div class="entry-name">Buona Birra <em>Cervejaria</em></div><div class="entry-meta">Canal · Artesanal</div><div class="entry-detail">Cervejas artesanais com vista pro canal. Perfeita para fechar o dia.</div></div></div>
-    <div class="entry"><div class="entry-num">iv.</div><div class="entry-body"><div class="entry-name">Dona <em>Abobrinha</em></div><div class="entry-meta">Centro · Comida caseira</div><div class="entry-detail">Almoço saudável e caseiro. Muito querido pelos moradores locais.</div></div></div>
-    <div class="entry"><div class="entry-num">v.</div><div class="entry-body"><div class="entry-name">Bruna Melo <em>Coffee & Cake</em></div><div class="entry-meta">Centro · Confeitaria</div><div class="entry-detail">Para o café da tarde com bolo artesanal. Ambiente charmoso.</div></div></div>
-    <div class="entry"><div class="entry-num">vi.</div><div class="entry-body"><div class="entry-name">Burgers <em>On Fire</em></div><div class="entry-meta">Centro · Casual</div><div class="entry-detail">Hambúrgueres artesanais para quem quer algo diferente do fruto do mar.</div></div></div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">A noite</div><h3 class="section-title">No <em>centro</em></h3></div>
-    <div class="entry"><div class="entry-num">i.</div><div class="entry-body"><div class="entry-name">Bares do <em>Centro</em></div><div class="entry-meta">Música ao vivo · Rolê</div><div class="entry-detail">O centro de Bertioga anima à noite. Bares, música ao vivo e aquele clima de cidade litorânea.</div></div></div>
-    <div class="entry"><div class="entry-num">ii.</div><div class="entry-body"><div class="entry-name">Orla <em>à Noite</em></div><div class="entry-meta">Passeio noturno</div><div class="entry-detail">Caminhar na orla iluminada, espetinho na mão e uma gelada beira-mar. Programa simples e perfeito.</div></div></div>
-  </section>
-</div>
-
-<!-- PASSEIOS -->
-<div class="page" id="pg-pass">
-  <header class="page-header">
-    <div class="eyebrow">capítulo IV</div>
-    <h1 class="h2">Passeios & <em>Aventuras</em></h1>
-    <p class="lede" style="margin-top:14px;">Bertioga tem muito mais do que praia.</p>
-  </header>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Na água</div><h3 class="section-title">Para <em>navegar</em></h3></div>
-    <div class="entry"><div class="entry-num">01</div><div class="entry-body"><div class="entry-name">Passeio de <em>Escuna</em></div><div class="entry-meta">Saídas diárias · Pier central</div><div class="entry-detail">Canal de Bertioga, manguezais e pôr do sol no mar aberto com drinks a bordo.</div></div></div>
-    <div class="entry"><div class="entry-num">02</div><div class="entry-body"><div class="entry-name">Aluguel de <em>Lancha</em></div><div class="entry-meta">Centro · VIP</div><div class="entry-detail">Explore o litoral, ilhotas e o canal como um local. Experiência incrível para grupos.</div></div></div>
-    <div class="entry"><div class="entry-num">03</div><div class="entry-body"><div class="entry-name">Caiaque no <em>Itapanhaú</em></div><div class="entry-meta">Rio · Todos os níveis</div><div class="entry-detail">Descida tranquila entre floresta e água cristalina até encontrar o mar.</div></div></div>
-    <div class="entry"><div class="entry-num">04</div><div class="entry-body"><div class="entry-name">Pesca <em>local</em></div><div class="entry-meta">Canal · Costão · Mar aberto</div><div class="entry-detail">Bertioga é paraíso para pescadores. Tem pescador local que leva você aos pontos certos — só perguntar no pier.</div></div></div>
-    <div class="entry"><div class="entry-num">05</div><div class="entry-body"><div class="entry-name">Stand Up <em>Paddle</em></div><div class="entry-meta">Rio Itapanhaú · Amanhecer</div><div class="entry-detail">Aluguel no rio e na praia de Bertioga. Ao amanhecer com maré calma — experiência de outro nível.</div></div></div>
-    <div class="entry"><div class="entry-num">06</div><div class="entry-body"><div class="entry-name">Snorkel no <em>Itapanhaú</em></div><div class="entry-meta">Água cristalina · Fauna incrível</div><div class="entry-detail">Encontro do rio com o mar. Leve a máscara de mergulho e descubra a fauna aquática.</div></div></div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Em terra</div><h3 class="section-title">Para <em>conhecer</em></h3></div>
-    <div class="entry"><div class="entry-num">07</div><div class="entry-body"><div class="entry-name">Forte <em>São João</em></div><div class="entry-meta">Século XVI · Entrada gratuita</div><div class="entry-detail">Um dos mais antigos das Américas. Vista deslumbrante pro canal.</div></div></div>
-    <div class="entry"><div class="entry-num">08</div><div class="entry-body"><div class="entry-name">Trilhas na <em>Serra do Mar</em></div><div class="entry-meta">Parque Estadual · Todos os níveis</div><div class="entry-detail">Mata Atlântica, ar puro e vistas panorâmicas do litoral.</div></div></div>
-    <div class="entry"><div class="entry-num">09</div><div class="entry-body"><div class="entry-name">Pôr do sol em <em>Itaguaré</em></div><div class="entry-meta">Costão · Vinho obrigatório</div><div class="entry-detail">Um dos momentos mais bonitos da costa paulista. Um vinho na mão, o sol mergulhando no horizonte.</div></div></div>
-    <div class="entry"><div class="entry-num">10</div><div class="entry-body"><div class="entry-name">Feira de <em>Artesanato</em></div><div class="entry-meta">Sáb · Dom · Orla</div><div class="entry-detail">Artesanato caiçara, comidas típicas e música ao vivo. Tarde perfeita.</div></div></div>
-  </section>
-
-  <div class="rule"></div>
-
-  <section class="entries">
-    <div class="entries-head"><div class="section-meta">Ecoturismo & cultura</div><h3 class="section-title">Para <em>aprofundar</em></h3></div>
-    <div class="entry"><div class="entry-num">11</div><div class="entry-body"><div class="entry-name">Calçadão do <em>Canal</em></div><div class="entry-meta">Coração de Bertioga</div><div class="entry-detail">Beira do canal com o Forte São João, Mercado de Pescados, Parque dos Tupiniquins e a Feirinha. Dicas de restaurantes: <strong>Sandy, Buona Birra e Aquarela.</strong></div></div></div>
-    <div class="entry"><div class="entry-num">12</div><div class="entry-body"><div class="entry-name"><em>Jaguareguava</em> Ecoturismo</div><div class="entry-meta">Rio Jaguareguava · 6km do centro</div><div class="entry-detail">Caiaque, canoa, remo e SUP com monitores — inclusive passeios adaptados para mobilidade reduzida. Agende com 24h de antecedência.</div></div></div>
-  </section>
-</div>
-
-<!-- REGRAS -->
-<div class="page" id="pg-regras">
-  <header class="page-header">
-    <div class="eyebrow">capítulo V</div>
-    <h1 class="h2">Regras da <em>Casa</em></h1>
-    <p class="lede" style="margin-top:14px;">Poucas e simples — para todos se sentirem bem.</p>
-  </header>
-
-  <aside class="notice" style="margin-bottom:36px;">
-    <div class="notice-label">atenção · roupa de cama</div>
-    <div class="notice-title">O apartamento não disponibiliza lençóis nem roupas de cama.</div>
-    <p>Somente <strong>travesseiros</strong> estão disponíveis. Traga seus <strong>lençóis, fronhas e toalhas</strong>. Por favor, planeje antes de vir.</p>
-  </aside>
-
-  <section style="padding:0 0 24px;">
-    <div style="padding:0 28px 24px;"><div class="section-meta">Combinados</div><h3 class="section-title">Para <em>conviver bem</em></h3></div>
-    <div class="rules-grid">
-      <div class="rule-item"><div class="rule-item-num">i.</div><div class="rule-item-name"><em>Torneiras</em></div><div class="rule-item-detail">Mantenha fechadas ao sair. Pequeno gesto, grande diferença.</div></div>
-      <div class="rule-item"><div class="rule-item-num">ii.</div><div class="rule-item-name">Ar-<em>condicionado</em></div><div class="rule-item-detail">Desligue ao sair. Janelas fechadas com AC ligado.</div></div>
-      <div class="rule-item"><div class="rule-item-num">iii.</div><div class="rule-item-name"><em>Silêncio</em></div><div class="rule-item-detail">Depois das 22h respeitamos os vizinhos.</div></div>
-      <div class="rule-item"><div class="rule-item-num">iv.</div><div class="rule-item-name">Não <em>fumar</em></div><div class="rule-item-detail">Proibido dentro do apto. Área externa liberada.</div></div>
-      <div class="rule-item"><div class="rule-item-num">v.</div><div class="rule-item-name"><em>Pets</em></div><div class="rule-item-detail">Adoramos! Não deixe subir em sofás e camas.</div></div>
-      <div class="rule-item"><div class="rule-item-num">vi.</div><div class="rule-item-name"><em>Lixo</em></div><div class="rule-item-detail">Separe recicláveis. Deixe o apê organizado.</div></div>
-      <div class="rule-item"><div class="rule-item-num">vii.</div><div class="rule-item-name"><em>Acesso</em></div><div class="rule-item-detail">Não compartilhe a senha com quem não está hospedado.</div></div>
-      <div class="rule-item"><div class="rule-item-num">viii.</div><div class="rule-item-name"><em>Cozinha</em></div><div class="rule-item-detail">Lave a louça após usar. Mantenha alimentos armazenados.</div></div>
-    </div>
-  </section>
-
-  <section class="hours" style="margin-top:24px;">
-    <div class="hour"><div class="hour-label">Check-in</div><div class="hour-value"><em>09</em>–21h</div><div class="hour-sub">código por mensagem</div></div>
-    <div class="hour"><div class="hour-label">Check-out</div><div class="hour-value">até <em>12h</em></div><div class="hour-sub">desligue tudo</div></div>
-  </section>
-</div>
-
-<!-- WIFI -->
-<div class="page" id="pg-wifi">
-  <header class="page-header">
-    <div class="eyebrow">capítulo VI</div>
-    <h1 class="h2">Wi-Fi & <em>Contatos</em></h1>
-    <p class="lede" style="margin-top:14px;">Tudo que você precisa ter na mão.</p>
-  </header>
-
-  <div class="wifi-card">
-    <div class="wifi-card-label">Internet</div>
-    <div class="wifi-field"><div class="wifi-field-label">Rede</div><div class="wifi-field-value">••••••••••</div></div>
-    <div class="wifi-field"><div class="wifi-field-label">Senha</div><div class="wifi-field-value">•••••••••• (no check-in)</div></div>
-    <div class="wifi-note">Cobertura em todo o apartamento. Velocidade para streaming.</div>
-  </div>
-
-  <div style="padding:0 28px 24px;"><div class="section-meta">Contatos úteis</div><h3 class="section-title">Sempre <em>à mão</em></h3></div>
-  <section class="contacts">
-    <div class="contact"><div class="contact-num">i.</div><div class="contact-body"><div class="contact-name">Tenda Atacado</div><div class="contact-detail">Av. Marginal Sul–Rio-Santos, 9.520</div></div></div>
-    <div class="contact"><div class="contact-num">ii.</div><div class="contact-body"><div class="contact-name">Droga Raia</div><div class="contact-detail">Rua Manoel Gajo, 551 · Parque Estoril</div></div></div>
-    <div class="contact"><div class="contact-num">iii.</div><div class="contact-body"><div class="contact-name">UPA Bertioga</div><div class="contact-detail">(13) 3319-5310</div></div></div>
-    <div class="contact"><div class="contact-num">iv.</div><div class="contact-body"><div class="contact-name">Bombeiros · Polícia</div><div class="contact-detail">193 · 190</div></div></div>
-    <div class="contact"><div class="contact-num">v.</div><div class="contact-body"><div class="contact-name">Lavanderia</div><div class="contact-detail">Lav & Sec · Av. Anchieta · 3km</div></div></div>
-    <div class="contact"><div class="contact-num">vi.</div><div class="contact-body"><div class="contact-name">Posto de gasolina</div><div class="contact-detail">1,5km sentido centro</div></div></div>
-  </section>
-
-  <div class="rule" style="margin-top:40px;"></div>
-
-  <div style="padding:0 28px 0;"><div class="section-meta">Sua experiência</div><h3 class="section-title">Como <em>foi</em> sua estadia?</h3></div>
-
-  <div class="funil">
-    <div id="funil-step1" class="funil-card">
-      <div class="funil-card-title">Reserve sua <em>estadia</em></div>
-      <div class="funil-card-sub">Veja disponibilidade e faça sua reserva direto com o anfitrião — sem taxa de plataforma.</div>
-      <button class="funil-btn primary" onclick="goTo('pg-reservar')">Reservar <em>direto</em></button>
-      <button class="funil-btn" onclick="funil('otima')">Avaliar minha <em>estadia</em></button>
-      <button class="funil-btn" onclick="funil('ruim')">Tenho um <em>feedback</em></button>
-    </div>
-
-    <div id="funil-positivo" class="funil-card" style="display:none;">
-      <div class="funil-card-title">Que <em>alegria</em>.</div>
-      <div class="funil-card-sub">Sua avaliação ajuda outros viajantes a nos encontrar e nos motiva a continuar melhorando.</div>
-      <div id="qr-box"></div>
-      <div class="funil-stars">✦ ✦ ✦ ✦ ✦</div>
-      <a class="funil-btn primary" href="https://www.airbnb.com.br/rooms/1649932875089753780" target="_blank" style="text-decoration:none;">Avaliar no <em>Airbnb</em></a>
-      <div style="margin-top:18px;padding:16px;background:var(--cream-deep);">
-        <div style="font-family:'Fraunces',serif;font-style:italic;font-size:14px;color:var(--ink);margin-bottom:6px;">Postou uma foto?</div>
-        <div style="font-size:12.5px;color:var(--ink-soft);line-height:1.5;">Use a hashtag <strong style="color:var(--terracotta);">#MareAlta203</strong> e nos marque — os melhores posts aparecem no nosso perfil.</div>
+  <section id="duplex" class="secao" style="padding-bottom:36px">
+    <div class="miolo faixa">
+      <div class="cab">
+        <h2>Cimento queimado, azulejo português e pé-direito alto.</h2>
+        <p>Deslize para fazer o caminho da chegada até a área de lazer.</p>
       </div>
     </div>
-
-    <div id="funil-feedback" class="funil-card" style="display:none;">
-      <div class="funil-card-title">Obrigado por ser <em>honesto</em>.</div>
-      <div class="funil-card-sub">Seu feedback vai direto para o Kaue. Somos um apartamento novo e cada detalhe importa.</div>
-      <div class="form-field"><div class="form-label">O que poderia ser melhor?</div><textarea id="fb-texto" class="form-input" rows="4" placeholder="Conte o que aconteceu..." style="resize:none;font-family:'Karla',sans-serif;"></textarea></div>
-      <div class="form-field"><div class="form-label">Seu nome (opcional)</div><input id="fb-nome" type="text" class="form-input" placeholder="Como posso te chamar?"></div>
-      <div class="form-field"><div class="form-label">WhatsApp (opcional)</div><input id="fb-phone" type="tel" class="form-input" placeholder="(11) 99999-9999"></div>
-      <button class="funil-btn primary" onclick="enviarFeedback()">Enviar para o <em>Kaue</em></button>
+    <div class="filme" id="filme" tabindex="0" role="group" aria-label="Fotos do apartamento e do condomínio">
+      <figure class="plano"><video id="video-chegada" src="video/chegada.mp4" poster="img/chegada-poster.jpg" muted playsinline preload="metadata" aria-label="Vídeo da fachada do condomínio, parando em frente ao portão"></video><figcaption><b>1</b><span>Entrada social</span></figcaption></figure>
+      <figure class="plano"><img src="img/entrada.jpg" style="--e:1.2;--o:62% 100%;object-position:62% 50%" alt="Porta de madeira com fechadura digital e escada caracol ao fundo" loading="lazy"><figcaption><b>2</b><span>Entrada com senha</span></figcaption></figure>
+      <figure class="plano"><img src="img/sala.jpg" style="object-position:62% 50%" alt="Sala com pé-direito alto, parede de cimento queimado e rack de madeira" loading="lazy"><figcaption><b>3</b><span>Sala com pé-direito alto</span></figcaption></figure>
+      <figure class="plano"><img src="img/cozinha.jpg" style="object-position:45% 50%" alt="Cozinha com ilha, quatro banquetas e barrado de azulejo português" loading="lazy"><figcaption><b>4</b><span>Cozinha com ilha</span></figcaption></figure>
+      <figure class="plano"><img src="img/banheiro.jpg" style="object-position:80% 50%" alt="Banheiro com box de vidro e azulejo verde-mar" loading="lazy"><figcaption><b>5</b><span>Banheiro em cima e embaixo</span></figcaption></figure>
+      <figure class="plano"><img src="img/quarto-suite.jpg" style="object-position:62% 50%" alt="Quarto de casal com porta aberta para a varanda" loading="lazy"><figcaption><b>6</b><span>Quarto com varanda</span></figcaption></figure>
+      <figure class="plano"><img src="img/quarto-2.jpg" alt="Quarto de casal com painel de madeira na cabeceira" loading="lazy"><figcaption><b>7</b><span>Quarto com painel</span></figcaption></figure>
+      <figure class="plano"><img src="img/quarto-3.jpg" style="object-position:35% 50%" alt="Quarto de casal com janela, ar-condicionado e poltrona" loading="lazy"><figcaption><b>8</b><span>Quarto com poltrona</span></figcaption></figure>
+      <figure class="plano"><img src="img/vista.jpg" style="object-position:48% 50%" alt="Vista da varanda para telhados e a serra ao fundo" loading="lazy"><figcaption><b>9</b><span>Vista para a serra</span></figcaption></figure>
+      <figure class="plano"><img src="img/area-gourmet.jpg" style="--e:1.36;--o:100% 42%" alt="Área coberta com churrasqueira, bancada e mesas altas" loading="lazy"><figcaption><b>10</b><span>Churrasqueira coberta</span></figcaption></figure>
     </div>
-
-    <div id="funil-enviado" class="funil-card" style="display:none;text-align:center;">
-      <div class="funil-card-title" style="text-align:center;">Recebido.<br><em>Muito obrigado.</em></div>
-      <div class="funil-card-sub" style="text-align:center;margin-top:14px;">O Kaue vai analisar e entrar em contato. Juntos melhoramos o Maré Alta 203 para os próximos hóspedes.</div>
-    </div>
-  </div>
-</div>
-
-<!-- RESERVAR -->
-<div class="page" id="pg-reservar">
-  <header class="page-header">
-    <div class="eyebrow">reserve direto</div>
-    <h1 class="h2">Reserva <em>Direta</em></h1>
-    <p class="lede" style="margin-top:14px;">Sem taxa de plataforma. Cupom de desconto válido. Pague via Pix.</p>
-  </header>
-
-  <section class="form-card">
-    <div style="margin-bottom:28px;">
-      <div class="section-meta">Solicitar reserva</div>
-      <h3 class="section-title">Preencha & <em>envie</em></h3>
-      <p class="body-text" style="margin-top:6px;">Aguarde a confirmação do Kaue via WhatsApp em até 1h.</p>
-    </div>
-
-    <div class="form-field"><div class="form-label">Seu nome completo</div><input id="res-nome" type="text" class="form-input" placeholder="Como posso te chamar?"></div>
-    <div class="form-field"><div class="form-label">WhatsApp para contato</div><input id="res-whats" type="tel" class="form-input" placeholder="(11) 99999-9999"></div>
-
-    <div class="form-row">
-      <div class="form-field"><div class="form-label">Check-in</div><input id="res-checkin" type="date" class="form-input"></div>
-      <div class="form-field"><div class="form-label">Check-out</div><input id="res-checkout" type="date" class="form-input"></div>
-    </div>
-
-    <div class="form-field">
-      <div class="form-label">Número de hóspedes</div>
-      <select id="res-hospedes" class="form-select">
-        <option value="">Selecione...</option>
-        <option value="1">1 hóspede</option><option value="2">2 hóspedes</option><option value="3">3 hóspedes</option><option value="4">4 hóspedes</option>
-        <option value="5">5 hóspedes</option><option value="6">6 hóspedes</option><option value="7">7 hóspedes</option><option value="8">8 hóspedes</option>
-      </select>
-    </div>
-
-    <div class="form-field">
-      <div class="form-label">Cupom de desconto (opcional)</div>
-      <div class="cupom-row">
-        <input id="res-cupom" type="text" class="form-input" placeholder="Ex: VERAO10" style="text-transform:uppercase;">
-        <button class="cupom-btn" onclick="aplicarCupom()">Aplicar</button>
-      </div>
-    </div>
-
-    <button class="submit-btn" onclick="enviarReserva()">Solicitar via <em>WhatsApp</em></button>
+    <div class="miolo faixa"><div class="controle">
+      <button type="button" id="ant" aria-label="Foto anterior">←</button>
+      <button type="button" id="prox" aria-label="Próxima foto">→</button>
+    </div></div>
   </section>
 
-  <aside class="benefits">
-    <div class="benefits-title">Por que reservar <em>direto</em>?</div>
-    <div class="benefit"><div class="benefit-num">i.</div><div class="benefit-body"><div class="benefit-name">Sem taxa de plataforma</div><div class="benefit-detail">Preço líquido, sem as taxas do Airbnb ou Booking.</div></div></div>
-    <div class="benefit"><div class="benefit-num">ii.</div><div class="benefit-body"><div class="benefit-name">Cupom de desconto</div><div class="benefit-detail">Descontos exclusivos aplicáveis apenas na reserva direta.</div></div></div>
-    <div class="benefit"><div class="benefit-num">iii.</div><div class="benefit-body"><div class="benefit-name">Pagamento via Pix</div><div class="benefit-detail">Mais simples, mais rápido e sem surpresas no cartão.</div></div></div>
-    <div class="benefit"><div class="benefit-num">iv.</div><div class="benefit-body"><div class="benefit-name">Contato direto com o anfitrião</div><div class="benefit-detail">Fale com o Kaue pelo WhatsApp — atenção personalizada.</div></div></div>
-  </aside>
-</div>
+  <div class="crista c1" aria-hidden="true"></div>
 
-</div>
+  <section class="secao faixa" id="quartos" style="background:var(--cal)">
+    <div class="miolo">
+      <div class="cab"><h2>Como cabem 8 pessoas</h2></div>
+      <div class="camas">
+        <figure class="cama"><div class="quadro"><img src="img/quarto-suite.jpg" style="object-position:30% 50%" alt="Quarto de casal com varanda" loading="lazy"></div><figcaption><b>Quarto com varanda</b>Cama de casal · 2 pessoas</figcaption></figure>
+        <figure class="cama"><div class="quadro"><img src="img/quarto-2.jpg" alt="Quarto de casal com painel de madeira" loading="lazy"></div><figcaption><b>Quarto com painel</b>Cama de casal · 2 pessoas</figcaption></figure>
+        <figure class="cama"><div class="quadro"><img src="img/quarto-3.jpg" style="object-position:35% 50%" alt="Quarto de casal com janela e poltrona" loading="lazy"></div><figcaption><b>Quarto com poltrona</b>Cama de casal · 2 pessoas</figcaption></figure>
+        <div class="cama texto"><strong>+2</strong><span><b>Sofá-cama na sala</b><br>2 pessoas</span></div>
+      </div>
+      <p class="aviso">A roupa de cama das fotos é ilustrativa. Traga a sua.</p>
+    </div>
+  </section>
 
-<button class="fab-reservar" id="fab-reservar" onclick="goTo('pg-reservar')">
-  <span class="fab-reservar-dot"></span>Reservar
-</button>
+  <div class="crista c2" aria-hidden="true"></div>
 
-<nav class="nav">
-  <button class="nb on" data-pg="pg-home"><span class="nb-label">Home</span></button>
-  <button class="nb" data-pg="pg-apt"><span class="nb-label">Apê</span></button>
-  <button class="nb" data-pg="pg-praias"><span class="nb-label">Praias</span></button>
-  <button class="nb" data-pg="pg-comer"><span class="nb-label">Dicas</span></button>
-  <button class="nb" data-pg="pg-pass"><span class="nb-label">Passeios</span></button>
-  <button class="nb" data-pg="pg-regras"><span class="nb-label">Regras</span></button>
-  <button class="nb" data-pg="pg-wifi"><span class="nb-label">Wi-Fi</span></button>
-</nav>
+  <section class="secao faixa" id="lazer">
+    <div class="miolo">
+      <div class="cab"><h2>Piscina e churrasco no condomínio</h2></div>
+      <div class="lazer">
+        <article><div class="quadro"><img src="img/piscina-jardim.jpg" style="object-position:70% 62%" alt="Piscina azul cercada por grade branca, entre palmeiras e flores" loading="lazy"></div><h3>Piscina com 1,30&nbsp;m</h3><p>Mesma profundidade em toda a extensão.</p></article>
+        <article><div class="quadro"><img src="img/area-gourmet.jpg" style="--e:1.25;--o:100% 30%;object-position:50% 34%" alt="Churrasqueira com coifa, bancada e mesas altas sob telhado" loading="lazy"></div><h3>Churrasqueira coberta</h3><p>É só trazer o carvão.</p></article>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <section class="secao faixa" id="localizacao" style="padding-top:0">
+    <div class="miolo duas">
+      <div>
+        <div class="cab">
+          <h2>A praia fica a cerca de 100&nbsp;m</h2>
+          <p>Você vai a pé para a praia de Maitinga, em Bertioga. O endereço exato chega depois da confirmação.</p>
+        </div>
+        <a class="link" href="https://www.google.com/maps/search/?api=1&query=Praia+de+Maitinga+Bertioga+SP" target="_blank" rel="noopener">Ver Maitinga no mapa</a>
+      </div>
+      <div id="antes">
+        <h2 class="sub">Traga na mala</h2>
+        <ul class="traga">
+          <li>Lençóis</li><li>Fronhas</li><li>Cobertor</li><li>Toalhas</li><li>Carvão</li>
+        </ul>
+        <p style="margin-top:10px">Os travesseiros já estão no apartamento.</p>
+      </div>
+    </div>
+  </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <section class="secao faixa" style="padding-top:0">
+    <div class="miolo duas">
+      <div>
+        <h2 class="sub">Horários e vagas</h2>
+        <ul class="ficha-texto">
+          <li><b>Check-in</b><span>A partir das 14h, com senha no teclado</span></li>
+          <li><b>Check-out</b><span>Até as 12h</span></li>
+          <li><b>Vagas</b><span>2 vagas: 1 fixa e 1 rotativa</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="sub">Antes de fechar</h2>
+        <details><summary>Tem escada?</summary><p>Sim. O acesso ao 2º andar é por escada caracol. Considere isso se houver crianças pequenas ou pessoas com mobilidade reduzida.</p></details>
+        <details><summary>Posso levar meu pet?</summary><p>Sim. Só pedimos que ele não suba em sofás e camas.</p></details>
+        <details><summary>Quais são as regras?</summary><p>Não fume dentro do apartamento. O silêncio começa às 22h.</p></details>
+        <details><summary>Há câmeras?</summary><p>Há câmeras de segurança na parte externa da propriedade.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="crista c3" aria-hidden="true"></div>
+
+  <section class="reserva" id="reservar">
+    <div class="secao faixa">
+      <div class="miolo">
+        <div class="cab"><h2>Fale com o anfitrião ou reserve pelo Airbnb</h2><p>Escolha as datas para abrir a mensagem pronta no WhatsApp do Kaue, ou veja a disponibilidade no Airbnb.</p></div>
+        <form id="form-reserva" novalidate>
+          <div class="campo"><label for="entrada-data">Check-in</label><input id="entrada-data" type="date" required></div>
+          <div class="campo"><label for="saida-data">Check-out</label><input id="saida-data" type="date" required></div>
+          <div class="campo"><label for="hospedes">Hóspedes</label><select id="hospedes" required><option value="">Selecione</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></div>
+          <div class="campo"><label for="pet">Vai levar pet?</label><select id="pet"><option value="não">Não</option><option value="sim">Sim</option></select></div>
+          <p class="erro tudo" id="erro" role="alert" hidden></p>
+          <a class="btn btn-gema tudo" id="enviar" href="https://wa.me/5513947963159" target="_blank" rel="noopener">Falar com anfitrião no WhatsApp</a>
+        </form>
+        <a class="btn btn-clara alt" href="https://www.airbnb.com.br/rooms/1649932875089753780" target="_blank" rel="noopener">Reservar no Airbnb</a>
+        <p class="nota">Este site não guarda seus dados. Eles seguem apenas na mensagem que você decidir enviar.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="faixa"><div class="miolo"><strong>Maré Alta 203</strong><span>Maitinga · Bertioga, SP</span></div></footer>
+
+<div class="barra" id="barra" hidden><a class="btn btn-gema" href="https://wa.me/5513947963159?text=Ol%C3%A1%2C%20Kaue%21%20Quero%20saber%20sobre%20o%20Mar%C3%A9%20Alta%20203." target="_blank" rel="noopener">Falar com anfitrião</a><a class="btn btn-clara" href="https://www.airbnb.com.br/rooms/1649932875089753780" target="_blank" rel="noopener">Reservar no Airbnb</a></div>
+
 <script>
-function closeSplash(){const s=document.getElementById('splash');s.classList.add('hiding');setTimeout(()=>s.style.display='none',500);}
+(function(){
+  var WHATS='5513947963159';
+  var el=function(i){return document.getElementById(i)};
+  var ent=el('entrada-data'),sai=el('saida-data'),hos=el('hospedes'),pet=el('pet'),erro=el('erro'),enviar=el('enviar');
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+  function dia(s){var p=s.split('-').map(Number);return new Date(p[0],p[1]-1,p[2])}
+  function br(s){return s.split('-').reverse().join('/')}
+  var hoje=iso(new Date());ent.min=hoje;sai.min=hoje;
+  function validar(){
+    if(!ent.value)return[ent,'Escolha a data de check-in.'];
+    if(ent.value<hoje)return[ent,'O check-in não pode ser uma data passada.'];
+    if(!sai.value)return[sai,'Escolha a data de check-out.'];
+    if(sai.value<=ent.value)return[sai,'O check-out precisa ser depois do check-in.'];
+    if(!hos.value)return[hos,'Selecione o número de hóspedes.'];
+    return null;
+  }
+  function atualizar(){
+    [ent,sai,hos].forEach(function(c){c.removeAttribute('aria-invalid')});erro.hidden=true;
+    if(ent.value){var d=dia(ent.value);d.setDate(d.getDate()+1);sai.min=iso(d)}
+    if(validar()){enviar.href='https://wa.me/'+WHATS;return}
+    var n=Math.round((dia(sai.value)-dia(ent.value))/864e5);
+    var msg='Olá, Kaue! Quero consultar o Maré Alta 203.\n\nCheck-in: '+br(ent.value)+'\nCheck-out: '+br(sai.value)+' ('+n+(n>1?' noites':' noite')+')\nHóspedes: '+hos.value+'\nPet: '+pet.value;
+    enviar.href='https://wa.me/'+WHATS+'?text='+encodeURIComponent(msg);
+  }
+  [ent,sai,hos,pet].forEach(function(c){c.addEventListener('input',atualizar);c.addEventListener('change',atualizar)});
+  el('form-reserva').addEventListener('submit',function(e){e.preventDefault();enviar.click()});
+  enviar.addEventListener('click',function(e){
+    atualizar();
+    var r=validar();
+    if(r){e.preventDefault();r[0].setAttribute('aria-invalid','true');erro.textContent=r[1];erro.hidden=false;r[0].focus()}
+  });
 
-const PAGE_ORDER=['pg-home','pg-apt','pg-praias','pg-comer','pg-pass','pg-regras','pg-wifi','pg-reservar'];
-let current='pg-home';
+  var filme=el('filme');
+  function mover(s){var p=filme.querySelector('.plano');filme.scrollBy({left:s*(p.offsetWidth+10),behavior:'smooth'})}
+  el('ant').addEventListener('click',function(){mover(-1)});
+  el('prox').addEventListener('click',function(){mover(1)});
 
-function goTo(target){
-  if(target===current)return;
-  const fromIdx=PAGE_ORDER.indexOf(current);
-  const toIdx=PAGE_ORDER.indexOf(target);
-  const dir=toIdx>fromIdx?1:-1;
-  const oldEl=document.getElementById(current);
-  const newEl=document.getElementById(target);
-  oldEl.style.transition='opacity .28s ease, transform .28s ease';
-  oldEl.style.opacity='0';
-  oldEl.style.transform=`translateX(${dir*-36}px)`;
-  oldEl.style.pointerEvents='none';
-  oldEl.classList.remove('active');
-  newEl.style.transition='none';
-  newEl.style.opacity='0';
-  newEl.style.transform=`translateX(${dir*36}px)`;
-  newEl.style.pointerEvents='none';
-  newEl.classList.add('active');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    newEl.style.transition='opacity .35s ease, transform .35s ease';
-    newEl.style.opacity='1';
-    newEl.style.transform='translateX(0)';
-    newEl.style.pointerEvents='all';
-    newEl.scrollTop=0;
-  }));
-  document.querySelectorAll('.nb').forEach(b=>b.classList.toggle('on',b.dataset.pg===target));
-  document.getElementById('fab-reservar').classList.toggle('hidden',target==='pg-reservar');
-  current=target;
-}
-
-document.querySelectorAll('.nb[data-pg]').forEach(b=>{b.addEventListener('click',()=>goTo(b.dataset.pg));});
-
-function funil(tipo){
-  document.getElementById('funil-step1').style.display='none';
-  if(tipo==='otima'||tipo==='boa'){document.getElementById('funil-positivo').style.display='block';}
-  else{document.getElementById('funil-feedback').style.display='block';}
-}
-
-function enviarFeedback(){
-  const texto=document.getElementById('fb-texto').value.trim();
-  const nome=document.getElementById('fb-nome').value.trim();
-  const phone=document.getElementById('fb-phone').value.trim();
-  if(!texto){alert('Por favor, conte o que aconteceu.');return;}
-  const msg=encodeURIComponent('*Feedback Maré Alta 203*\n\n'+(nome?'*Nome:* '+nome+'\n':'')+(phone?'*WhatsApp:* '+phone+'\n':'')+'\n*Mensagem:*\n'+texto);
-  window.open('https://wa.me/5513947963159?text='+msg,'_blank');
-  document.getElementById('funil-feedback').style.display='none';
-  document.getElementById('funil-enviado').style.display='block';
-}
-
-try{new QRCode(document.getElementById('qr-box'),{text:'https://www.airbnb.com.br/rooms/1649932875089753780',width:160,height:160,colorDark:'#1E2A32',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});}catch(e){}
-
-function aplicarCupom(){
-  const cupom=document.getElementById('res-cupom').value.trim().toUpperCase();
-  if(!cupom){alert('Digite um cupom.');return;}
-  alert(`Cupom "${cupom}" será validado pelo Kaue no contato.`);
-}
-
-function formatarData(input){if(!input)return '';const[y,m,d]=input.split('-');return `${d}/${m}/${y}`;}
-
-function enviarReserva(){
-  const nome=document.getElementById('res-nome').value.trim();
-  const whats=document.getElementById('res-whats').value.trim();
-  const checkin=document.getElementById('res-checkin').value;
-  const checkout=document.getElementById('res-checkout').value;
-  const hospedes=document.getElementById('res-hospedes').value;
-  const cupom=document.getElementById('res-cupom').value.trim().toUpperCase();
-  if(!nome){alert('Por favor, preencha seu nome.');return;}
-  if(!whats){alert('Por favor, preencha seu WhatsApp.');return;}
-  if(!checkin){alert('Escolha a data de check-in.');return;}
-  if(!checkout){alert('Escolha a data de check-out.');return;}
-  if(!hospedes){alert('Selecione o número de hóspedes.');return;}
-  const msg=encodeURIComponent('*Solicitação de Reserva — Maré Alta 203*\n\n*Nome:* '+nome+'\n*WhatsApp:* '+whats+'\n*Check-in:* '+formatarData(checkin)+'\n*Check-out:* '+formatarData(checkout)+'\n*Hóspedes:* '+hospedes+'\n'+(cupom?'*Cupom:* '+cupom+'\n':'')+'\nAguardo confirmação, obrigado!');
-  window.open('https://wa.me/5513947963159?text='+msg,'_blank');
-}
+  if('IntersectionObserver' in window){
+    var v=el('video-chegada');
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+      var vo=new IntersectionObserver(function(es){if(es[0].isIntersecting){vo.disconnect();var t=v.play();if(t&&t.catch)t.catch(function(){})}},{threshold:.5});
+      vo.observe(v);
+    }
+    v.addEventListener('click',function(){v.currentTime=0;var t=v.play();if(t&&t.catch)t.catch(function(){})});
+    var cta=el('cta-capa'),barra=el('barra');
+    new IntersectionObserver(function(es){var fora=!es[0].isIntersecting;barra.hidden=!fora;document.body.classList.toggle('com-barra',fora)}).observe(cta);
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.body.classList.add('anima');
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ver');io.unobserve(e.target)}})},{threshold:.2});
+      document.querySelectorAll('.plano,.quadro').forEach(function(q){io.observe(q)});
+    }
+  }
+})();
 </script>
 </body>
 </html>
